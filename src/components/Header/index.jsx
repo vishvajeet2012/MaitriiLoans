@@ -10,7 +10,7 @@ import Rounded from '../../common/RoundedButton';
 import Magnetic from '../../common/Magnetic';
 import maitriloans from "../../../public/images/MaitriiLoans.png"
 
-export default function index() {
+export default function Header() {
     const header = useRef(null);
     const [isActive, setIsActive] = useState(false);
     const pathname = usePathname();
@@ -18,7 +18,7 @@ export default function index() {
 
     useEffect( () => {
       if(isActive) setIsActive(false)
-    }, [pathname])
+    }, [pathname, isActive])
 
     useLayoutEffect( () => {
         gsap.registerPlugin(ScrollTrigger);

@@ -22,7 +22,7 @@ export default function Home() {
         <div className={styles.staticContent}>
           <h1>Welcome To Maitrii Loans</h1>
           {/* Agar aapko image text ke bagal me chahiye */}
-          <img src={ImageBook.src} className={styles.ImageBook} alt="book image" />
+          <Image src={ImageBook} className={styles.ImageBook} alt="book image" />
         </div>
       </div>
 
