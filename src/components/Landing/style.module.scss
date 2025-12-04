@@ -1,53 +1,86 @@
-.landing{
-    position: relative;
-    display: flex;
-    height: 100vh;
-    overflow: hidden;
+.landing {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
 
-    img{
-      object-fit: cover;
-    }
-    
-    .sliderContainer{
-      position: absolute;
-      top: calc(100vh - 350px);
-    }
-    
-    .slider{
-      position: relative;
-      white-space: nowrap;
-    }
-    
-    .slider p{
-      position: relative;
-      margin: 0px;
-      color: white;
-      font-size: 230px;
-      font-weight: 500;
-      padding-right: 50px;
-    }
-    
-    .slider p:nth-of-type(2){
-      position: absolute;
-      left: 100%;
-      top: 0;
-    }
+  // Next.js Image styling (Background)
+  img {
+    object-fit: cover;
+  }
   
-    .description{
-      position: absolute;
-      top: 35%;
-      left: 65%;
+  .contentContainer {
+    position: absolute;
+    top: 50%;
+    left: 5%; 
+    transform: translateY(-50%);
+    width: 90%; 
+    z-index: 1;
+  }
+  
+  .staticContent {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    gap: 20px; 
+    
+    h1 {
+      margin: 0;
       color: white;
-      font-size: 24px;
-      font-weight: 300;
-      p{
-        margin: 0px;
-        margin-bottom: 10px;
-      }
-      svg{
-        transform: scale(2);
-        margin-bottom: 100px;
-      }
+      font-size: clamp(40px, 5vw, 90px); 
+      font-weight: 500;
+      line-height: 1.1;
+      flex: 1; // Text bachi hui jagah lega
     }
   }
   
+  .ImageBook {
+    width: 550px; 
+    margin-top: 100px;
+    height: auto; 
+    display: block;
+    object-fit: contain; 
+    flex-shrink: 0; 
+  }
+
+ 
+  @media (max-width: 1024px) {
+    .contentContainer {
+      left: 5%;
+      width: 90%;
+    }
+
+    .staticContent {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 40px;
+      
+      h1 {
+        max-width: 100%;
+        font-size: 60px; 
+      }
+      
+      .ImageBook {
+        width: 400px;
+        align-self: center; 
+      }
+    }
+  }
+
+  // 2. Mobile (Phones ~768px and below)
+  @media (max-width: 768px) {
+    .staticContent {
+      h1 {
+        font-size: 42px; 
+        text-align: center; 
+      }
+
+      .ImageBook {
+     
+        width: 100%; 
+        max-width: 350px; // Max limit laga di
+      }
+    }
+  }
+}

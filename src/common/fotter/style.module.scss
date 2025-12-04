@@ -1,0 +1,118 @@
+// Variables
+$brand-color: #6D3078; // Purple
+$text-color: #374151;  // Dark Grey
+$light-text: #6B7280;  // Light Grey
+$bg-color: #F9FAFB;    // Very Light Grey
+
+.footer {
+  background-color: $bg-color;
+  padding-top: 4rem;
+  border-top: 1px solid #e5e7eb;
+  font-family: 'Arial', sans-serif;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+
+    // Desktop view: 4 columns
+    @media (min-width: 1024px) {
+      grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      color: #000;
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    p {
+      color: $light-text;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.75rem;
+
+      a {
+        color: $brand-color;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+          opacity: 0.8;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    color: $light-text;
+    font-size: 0.9rem;
+
+    svg {
+      color: $brand-color;
+      width: 18px;
+      height: 18px;
+      margin-right: 0.75rem;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    span {
+      line-height: 1.5;
+    }
+  }
+
+  &__bottom {
+    background-color: #f3f4f6;
+    padding: 1.5rem 0;
+    text-align: center;
+    border-top: 1px solid #e5e7eb;
+
+    p {
+      color: $text-color;
+      font-size: 0.875rem;
+      margin: 0;
+      
+      span {
+        font-weight: 600;
+      }
+    }
+
+    .cin-no {
+      display: block;
+      margin-top: 0.5rem;
+      font-weight: 700;
+      color: #000;
+    }
+  }
+}

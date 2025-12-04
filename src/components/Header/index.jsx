@@ -8,6 +8,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Rounded from '../../common/RoundedButton';
 import Magnetic from '../../common/Magnetic';
+import maitriloans from "../../../public/images/MaitriiLoans.png"
 
 export default function index() {
     const header = useRef(null);
@@ -20,29 +21,49 @@ export default function index() {
     }, [pathname])
 
     useLayoutEffect( () => {
-        gsap.registerPlugin(ScrollTrigger)
-        gsap.to(button.current, {
-            scrollTrigger: {
-                trigger: document.documentElement,
-                start: 0,
-                end: window.innerHeight,
-                onLeave: () => {gsap.to(button.current, {scale: 1, duration: 0.25, ease: "power1.out"})},
-                onEnterBack: () => {gsap.to(button.current, {scale: 0, duration: 0.25, ease: "power1.out"},setIsActive(false))}
+        gsap.registerPlugin(ScrollTrigger);
+        
+        let mm = gsap.matchMedia();
+
+        mm.add({
+          
+            isDesktop: "(min-width: 769px)",
+            isMobile: "(max-width: 768px)",
+        }, (context) => {
+            let { isDesktop, isMobile } = context.conditions;
+
+            if(isDesktop) {
+                // Desktop logic: Button starts hidden (scale 0) and appears on scroll
+                gsap.to(button.current, {
+                    scrollTrigger: {
+                        trigger: document.documentElement,
+                        start: 0,
+                        end: window.innerHeight,
+                        onLeave: () => {gsap.to(button.current, {scale: 1, duration: 0.25, ease: "power1.out"})},
+                        onEnterBack: () => {gsap.to(button.current, {scale: 0, duration: 0.25, ease: "power1.out"}, setIsActive(false))}
+                    }
+                });
+            } 
+            
+            if(isMobile) {
+                gsap.set(button.current, { scale: 1 });
             }
-        })
+        });
+
+        // Cleanup function
+        return () => mm.revert();
     }, [])
 
     return (
         <>
         <div ref={header} className={styles.header}>
             <div className={styles.logo}>
-                <p className={styles.copyright}>©</p>
                 <div className={styles.name}>
-                    <p className={styles.codeBy}>Code by</p>
-                    <p className={styles.dennis}>Dennis</p>
-                    <p className={styles.snellenberg}>Snellenberg</p>
+                    {/* <img src={maitriloans.src} className={styles.maitriLogo}  alt="Maitrii Loans Logo"/> */}
                 </div>
             </div>
+            
+            {/* Desktop Navigation Links */}
             <div className={styles.nav}>
                 <Magnetic>
                     <div className={styles.el}>
@@ -64,6 +85,7 @@ export default function index() {
                 </Magnetic>
             </div>
         </div>
+
         <div ref={button} className={styles.headerButtonContainer}>
             <Rounded onClick={() => {setIsActive(!isActive)}} className={`${styles.button}`}>
                 <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>

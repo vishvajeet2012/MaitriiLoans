@@ -8,6 +8,10 @@ import Projects from '../components/Projects';
 import Description from '../components/Description';
 import SlidingImages from '../components/SlidingImages';
 import Contact from '../components/Contact';
+import { Howtogetloans } from '@/components/Landing/howLoans/HowtogetLoans';
+import WhyChooseUs from '@/components/Landing/WhyChosseuse';
+import OurProduct from '@/components/Landing/ourProdcut';
+import NetworkMap from '@/components/Landing/rajasthanMap';
 
 export default function Home() {
 
@@ -35,9 +39,14 @@ export default function Home() {
       </AnimatePresence>
       <Landing />
       <Description />
-      <Projects />
+      <Howtogetloans/>
+      <OurProduct/>
+      <WhyChooseUs/>
+      <NetworkMap/>
+      {/* <Projects />
       <SlidingImages />
-      <Contact />
+      */}
+      {/* <Contact />  */}
     </main>
   )
 }

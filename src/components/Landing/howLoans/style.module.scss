@@ -1,0 +1,141 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 20px;
+
+  .heading {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
+   
+    color: black; 
+    margin-bottom: 50px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 25px;
+}
+
+.card {
+  position: relative;
+  display: block; 
+  text-decoration: none;
+  
+  // --- CARD BACKGROUND WHITE ---
+  background-color: #ffffff; 
+  
+  border-radius: 20px;
+  padding: 1px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  border: 1px solid rgba(0, 0, 0, 0.1); 
+
+  .cardContent {
+    background-color: #ffffff; // White
+    border-radius: 19px;
+    padding: 30px;
+    padding-top: 80px; 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative; 
+  }
+
+  // --- NUMBER STYLING ---
+  .indexNumber {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    
+    // Purple Background, White Text
+    background-color: #6D3078; 
+    color: white;
+    
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); // Shadow thoda soft kiya
+    
+    transition: all 0.5s ease;
+  }
+
+  .cardTitle {
+    // --- TEXT BLACK ---
+    color: #1C1D20; 
+    
+    font-size: 1.4rem; 
+    font-weight: 600;
+    margin: 0;
+    transition: color 0.3s ease;
+  }
+
+  .cardDescription {
+    // --- DESCRIPTION DARK GRAY ---
+    color: #4B5563; 
+    
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    transition: color 0.3s ease;
+  }
+
+  // --- HOVER EFFECTS ---
+  &:hover {
+    transform: translateY(-10px); 
+    border-color: #F2672E;
+    box-shadow: 0px 15px 35px rgba(109, 48, 120, 0.2); 
+
+ 
+    .cardTitle {
+      color: #6D3078; 
+    }
+
+   
+    .cardDescription {
+      color: #000000; 
+    }
+
+    // 3. Number Animation
+    .indexNumber {
+      background-color: #6D3078; // Background same rakha taaki contrast rahe
+      color: white;
+      transform: rotate(360deg); 
+      
+    
+      background-color: white;
+      color: #6D3078;
+      border: 1px solid #F2672E; // Border add kiya visibility ke liye
+    }
+  }
+}
+
+// --- RESPONSIVE BREAKPOINTS ---
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 2rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr; 
+  }
+
+  .card .cardContent {
+    padding-top: 80px; 
+  }
+}

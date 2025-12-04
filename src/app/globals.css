@@ -1,6 +1,10 @@
+@import "tailwindcss";
 
-body{
-    margin: 0px;
-    overflow: hidden; /* Hide scrollbars */
-    cursor: wait;
+body {
+  margin: 0;
+  cursor: wait;
+}
+
+* {
+  box-sizing: border-box;
 }

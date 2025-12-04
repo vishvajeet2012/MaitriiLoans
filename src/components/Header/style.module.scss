@@ -25,35 +25,6 @@
             white-space: nowrap;
             margin-left: 5px;
             transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-            p{
-                position: relative;
-                transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
-                &:nth-of-type(2){
-                    padding-left: 0.3em;
-                }
-                &:nth-of-type(3){
-                    position: absolute;
-                    left: 120px;
-                    padding-left: 0.3em;
-                }
-            }
-        }
-        &:hover{
-            .copyright{
-                transform: rotate(360deg);
-            }
-            .name{
-                padding-right: 30px;
-                .codeBy{
-                    transform: translateX(-100%);
-                }
-                .dennis{
-                    transform: translateX(-65px);
-                }
-                .snellenberg{
-                    transform: translateX(-65px);
-                }
-            }
         }
     }
     .nav{
@@ -88,7 +59,22 @@
             cursor: pointer;
         }
     } 
+
+    // --- RESPONSIVE HEADER ---
+    @media (max-width: 768px) {
+        padding: 20px; // Padding kam ki mobile ke liye
+
+        .nav {
+            display: none; // Text links hide kar diye (Work, About, Contact)
+        }
+
+        .maitriLogo {
+            // Mobile par logo thoda adjust kiya
+            width: 80px; 
+        }
+    }
 }
+
 .headerButtonContainer{
     transform: scale(0);
     position: fixed;
@@ -145,5 +131,20 @@
         }
         
     }
+
+    // --- RESPONSIVE BUTTON ---
+    @media (max-width: 768px) {
+        top: 0; // Top align fix
+        
+        .button {
+            width: 60px; // Button thoda chhota kiya mobile ke liye
+            height: 60px;
+            margin: 15px; // Margin adjust
+        }
+    }
 }
 
+.maitriLogo{
+    width: 100px;
+    height: auto;
+}
