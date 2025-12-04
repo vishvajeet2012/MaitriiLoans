@@ -15,7 +15,7 @@ export default function Description() {
     return (
         <div ref={description} className={styles.description}>
             <div className={styles.body}>
-                
+
                 {/* Button Container Left */}
                 <div className={styles.buttonContainer}>
                     {/* backgroundColor="#FFFFFF" pass kiya taaki animation white ho */}
@@ -27,11 +27,11 @@ export default function Description() {
                 {/* Text Container Right */}
                 <div className={styles.textContainer}>
                     <p>
-                    {
-                        phrase.split(" ").map( (word, index) => {
-                            return <span key={index} className={styles.mask}><motion.span variants={slideUp} custom={index} animate={isInView ? "open" : "closed"} key={index}>{word}</motion.span></span>
-                        })
-                    }
+                        {
+                            phrase.split(" ").map((word, index) => {
+                                return <span key={index} className={styles.mask}><motion.span variants={slideUp} custom={index} animate={isInView ? "open" : "closed"} key={index}>{word}</motion.span></span>
+                            })
+                        }
                     </p>
                     <motion.p variants={opacity} animate={isInView ? "open" : "closed"}>
                         The company&apos;s objective is to evolve into a comprehensive financial services provider, offering clients an effective means to attain both their short- and long-term financial aspirations.

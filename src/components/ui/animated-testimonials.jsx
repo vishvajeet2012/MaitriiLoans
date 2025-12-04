@@ -67,14 +67,14 @@ export const AnimatedTestimonials = ({
                     duration: 0.4,
                     ease: "easeInOut",
                   }}
-                  className="absolute inset-0 origin-bottom">
+                  className="absolute inset-0 origin-bottom aspect-square">
                   <img
                     src={testimonial.src}
                     alt={testimonial.name}
                     width={500}
                     height={500}
                     draggable={false}
-                    className="h-full w-full rounded-3xl object-cover object-center" />
+                    className="h-full w-full rounded-3xl aspect-square object-fill " />
                 </motion.div>
               ))}
             </AnimatePresence>

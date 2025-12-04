@@ -14,7 +14,7 @@ const testimonials = [
         src: utkarshGoyal.src,
     },
     {
-        name: "Kanishk Goyal",
+        name: "Mrs. Anju Goyal",
         designation: "Director",
         quote: "She is a MA graduate from Aligarh University & founder Director of Mentor Finmart Pvt. Ltd. having rich experience in the field of finance. She actively participates in strategic decisions of the company. She also keeps a keen interest in Education, Social Activity, and Environmental Stability. To fulfill her dream of providing better education to underprivileged children, she has started a CBSE school in the semi-rural area. She is also associated with many NGOs to provide necessary help & create awareness. She runs a Credit Co-operative Society to help the poor & unbanked part of society, helping small communities grow & create a better future. She has an uncanny ability to resolve complex business and social issues.",
         src: dummYImage.src,

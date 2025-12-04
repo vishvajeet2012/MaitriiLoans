@@ -72,18 +72,7 @@ export default function Header() {
                             <div className={styles.indicator}></div>
                         </div>
                     </Magnetic>
-                    <Magnetic>
-                        <div className={styles.el}>
-                            <Link href="/about">About</Link>
-                            <div className={styles.indicator}></div>
-                        </div>
-                    </Magnetic>
-                    <Magnetic>
-                        <div className={styles.el}>
-                            <Link href="/charges">Charges</Link>
-                            <div className={styles.indicator}></div>
-                        </div>
-                    </Magnetic>
+
                     <Magnetic>
                         <div className={styles.el}>
                             <Link href="/product/personal-loan">Personal Loan</Link>
@@ -105,6 +94,13 @@ export default function Header() {
                     <Magnetic>
                         <div className={styles.el}>
                             <Link href="/product/mortgage">Mortgage Loan</Link>
+                            <div className={styles.indicator}></div>
+                        </div>
+                    </Magnetic>
+
+                    <Magnetic>
+                        <div className={styles.el}>
+                            <Link href="/about">About</Link>
                             <div className={styles.indicator}></div>
                         </div>
                     </Magnetic>

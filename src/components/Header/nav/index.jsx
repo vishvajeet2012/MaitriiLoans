@@ -13,10 +13,6 @@ const navItems = [
     href: "/",
   },
   {
-    title: "Work",
-    href: "/work",
-  },
-  {
     title: "About",
     href: "/about",
   },
@@ -58,7 +54,7 @@ export default function Navigation() {
       <div className={styles.body}>
         <div onMouseLeave={() => { setSelectedIndicator(pathname) }} className={styles.nav}>
           <div className={styles.header}>
-            <p>Navigation</p>
+            <p>Maitrii Loans</p>
           </div>
           {
             navItems.map((data, index) => {
@@ -71,7 +67,7 @@ export default function Navigation() {
             })
           }
         </div>
-        <Footer />
+
       </div>
       <Curve />
     </motion.div>

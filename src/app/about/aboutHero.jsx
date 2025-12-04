@@ -9,7 +9,6 @@ const MaitriiAbout = () => {
             <div className="container mx-auto px-6 md:px-12 py-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
 
                 {/* --- Left Side: Text Content --- */}
-                {/* Isme entrance animation hai */}
                 <motion.div
                     className="flex flex-col gap-4 max-w-lg"
                     initial={{ opacity: 0, y: 30 }}
@@ -21,82 +20,96 @@ const MaitriiAbout = () => {
                         About Maitrii
                     </h2>
                     <p className="text-lg text-[#6D3078] leading-relaxed font-medium">
-                        Explore our journey, values, and commitment to Maitrii finance.
+                        Explore our journey, values, and commitment to Maitrii finance. We are dedicated to empowering your financial growth with trust and transparency.
                     </p>
+                    {/* <div className="mt-4 flex gap-4">
+                        <div className="flex flex-col">
+                            <span className="text-3xl font-bold text-[#6D3078]">10k+</span>
+                            <span className="text-sm text-slate-500">Happy Customers</span>
+                        </div>
+                        <div className="w-px h-12 bg-slate-300"></div>
+                        <div className="flex flex-col">
+                            <span className="text-3xl font-bold text-[#F47E4D]">₹50Cr+</span>
+                            <span className="text-sm text-slate-500">Disbursed</span>
+                        </div>
+                    </div> */}
                 </motion.div>
 
-                {/* --- Right Side: Illustration --- */}
-                {/* Container animate karega, lekin andar SVG normal hai */}
+                {/* --- Right Side: Loan Company Illustration --- */}
                 <motion.div
-                    className="relative w-full h-[300px] md:h-[400px] flex items-end justify-end"
+                    className="relative w-full h-[350px] md:h-[450px] flex items-center justify-center"
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
                     <svg
-                        viewBox="0 0 800 400"
-                        className="w-full h-full drop-shadow-sm"
+                        viewBox="0 0 600 500"
+                        className="w-full h-full drop-shadow-lg"
                         preserveAspectRatio="xMidYMid meet"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
                     >
-                        {/* Background elements (Clouds) - STATIC */}
-                        <circle cx="700" cy="150" r="20" fill="#E2E8F0" opacity="0.5" />
-                        <circle cx="730" cy="160" r="25" fill="#E2E8F0" opacity="0.5" />
+                        {/* --- Background Elements --- */}
+                        <circle cx="300" cy="250" r="180" fill="white" opacity="0.5" />
+                        <circle cx="300" cy="250" r="140" stroke="#E2E8F0" strokeWidth="2" strokeDasharray="8 8" />
 
-                        {/* Sun - STATIC */}
-                        <circle cx="650" cy="100" r="25" fill="#FFD700" />
+                        {/* --- Financial Growth Graph (The Bar Chart) --- */}
+                        <g transform="translate(140, 100)">
+                            {/* Bar 1 */}
+                            <rect x="0" y="150" width="40" height="100" rx="4" fill="#6D3078" opacity="0.3" />
+                            {/* Bar 2 */}
+                            <rect x="60" y="100" width="40" height="150" rx="4" fill="#6D3078" opacity="0.5" />
+                            {/* Bar 3 */}
+                            <rect x="120" y="50" width="40" height="200" rx="4" fill="#6D3078" opacity="0.8" />
+                            {/* Bar 4 (Highest) */}
+                            <rect x="180" y="0" width="40" height="250" rx="4" fill="#6D3078" />
 
-                        {/* The Winding Path (White Road) */}
-                        <path
-                            d="M 850 450 
-                               C 700 450, 600 350, 450 350 
-                               C 300 350, 200 250, 100 250 
-                               L 100 450 Z"
-                            fill="white"
-                            className="drop-shadow-sm"
-                        />
-                        {/* Extended path for visual flow */}
-                        <path
-                            d="M 900 400 
-                               C 750 400, 500 320, 550 220
-                               S 800 180, 800 180"
-                            fill="none"
-                            stroke="white"
-                            strokeWidth="60"
-                            strokeLinecap="round"
-                            className="opacity-90"
-                        />
-
-                        {/* Flags - STATIC (Normal groups) */}
-
-                        {/* Flag 1 (Farthest) */}
-                        <g transform="translate(680, 150) scale(0.6)">
-                            <line x1="0" y1="0" x2="0" y2="60" stroke="#6D3078" strokeWidth="3" />
-                            <path d="M 0 5 L 40 5 L 40 30 L 0 30" fill="#6D3078" />
+                            {/* Rising Arrow Line */}
+                            <path d="M 20 140 L 80 90 L 140 40 L 200 -10" stroke="#F47E4D" strokeWidth="6" strokeLinecap="round" />
+                            <path d="M 190 -10 L 200 -10 L 200 10" stroke="#F47E4D" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
                         </g>
 
-                        {/* Flag 2 */}
-                        <g transform="translate(750, 190) scale(0.7)">
-                            <line x1="0" y1="0" x2="0" y2="70" stroke="#6D3078" strokeWidth="3" />
-                            <path d="M 0 5 L 40 5 L 40 35 L 0 35" fill="#6D3078" />
+                        {/* --- Trust Shield Icon (Bottom Right) --- */}
+                        <g transform="translate(380, 280)">
+                            <path d="M 0 0 L 80 0 L 80 50 C 80 80 40 100 40 100 C 40 100 0 80 0 50 Z" fill="white" stroke="#F47E4D" strokeWidth="4" />
+                            {/* Checkmark inside Shield */}
+                            <path d="M 25 45 L 35 55 L 55 35" stroke="#6D3078" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
                         </g>
 
-                        {/* Flag 3 */}
-                        <g transform="translate(580, 220) scale(0.8)">
-                            <line x1="0" y1="0" x2="0" y2="80" stroke="#6D3078" strokeWidth="4" />
-                            <path d="M 0 5 L 50 5 L 50 40 L 0 40" fill="#6D3078" />
+                        {/* --- Handshake / Partnership (Abstract Bottom Left) --- */}
+                        <g transform="translate(100, 320)">
+                            <circle cx="50" cy="50" r="50" fill="white" filter="url(#shadow)" />
+                            {/* Abstract Hands */}
+                            <path d="M 25 50 C 25 50, 40 40, 50 50 C 60 60, 75 50, 75 50" stroke="#6D3078" strokeWidth="4" strokeLinecap="round" />
+                            <path d="M 25 60 C 25 60, 40 50, 50 60 C 60 70, 75 60, 75 60" stroke="#F47E4D" strokeWidth="4" strokeLinecap="round" />
+                            {/* Connection Dots */}
+                            <circle cx="25" cy="50" r="4" fill="#6D3078" />
+                            <circle cx="75" cy="50" r="4" fill="#6D3078" />
+                            <circle cx="25" cy="60" r="4" fill="#F47E4D" />
+                            <circle cx="75" cy="60" r="4" fill="#F47E4D" />
                         </g>
 
-                        {/* Flag 4 (Closest/Biggest) */}
-                        <g transform="translate(450, 260) scale(1)">
-                            <line x1="0" y1="0" x2="0" y2="100" stroke="#6D3078" strokeWidth="4" />
-                            <path d="M 0 10 L 60 10 L 60 50 L 30 40 L 0 50 Z" fill="#6D3078" />
+                        {/* --- Floating Coins (Prosperity) --- */}
+                        <g transform="translate(420, 100)">
+                            <circle cx="0" cy="0" r="25" fill="#FFD700" />
+                            <text x="0" y="8" textAnchor="middle" fill="#B45309" fontSize="24" fontWeight="bold">₹</text>
                         </g>
+                        <g transform="translate(460, 60)">
+                            <circle cx="0" cy="0" r="15" fill="#F47E4D" opacity="0.6" />
+                        </g>
+
+                        {/* Definitions for Shadow */}
+                        <defs>
+                            <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="#64748b" floodOpacity="0.15" />
+                            </filter>
+                        </defs>
                     </svg>
                 </motion.div>
             </div>
 
-            {/* Bottom Fade */}
+            {/* Optional: Bottom fade/curve overlay if needed */}
             <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
         </section>
     );

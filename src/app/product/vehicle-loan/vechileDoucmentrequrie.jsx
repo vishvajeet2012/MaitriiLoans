@@ -2,83 +2,104 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { UserCheck, MapPin, Banknote, Briefcase, Calculator, FileCheck, Car } from 'lucide-react';
+// import { useRouter } from 'next/navigation'; // Removing this to prevent build error
+import { UserCheck, MapPin, Banknote, Briefcase, Calculator, FileCheck, Car, FileText, Camera } from 'lucide-react';
 
-const DocumentsRequired = () => {
+const VehicleLoanDocuments = () => {
+    // const router = useRouter(); // Removing hook
 
     // Animation Variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
-            transition: { staggerChildren: 0.15 }
+            transition: { staggerChildren: 0.1 }
         }
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+        hidden: { opacity: 0, y: 10 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
     };
 
-    // Document Data (Updated as per your request)
+    // Document Data for Vehicle Loan
     const documents = [
         {
-            title: "Photo Identity Proof",
-            desc: "Passport, PAN Card, Voter’s Identity Card, Driving License, Aadhaar Card.",
-            icon: <UserCheck className="w-8 h-8 text-[#F47E4D]" />
+            title: "Identity Proof",
+            desc: "PAN Card, Aadhaar Card, Passport, Voter ID, or Driving License.",
+            icon: <UserCheck className="w-6 h-6" />
         },
         {
             title: "Address Proof",
-            desc: "Ration Card, Passport, Driving License, Bank A/C Statement, Electricity/Telephone Bill, Aadhaar Card, Sale Deed/ Property Purchase Agreement (For Owned Properties).",
-            icon: <MapPin className="w-8 h-8 text-[#F47E4D]" />
+            desc: "Electricity Bill, Ration Card, Passport, or Bank Statement.",
+            icon: <MapPin className="w-6 h-6" />
         },
         {
-            title: "Income Proof",
-            desc: "For Salaried: Last 3-6 months’ bank statement, Latest Salary Slip. For Self-Employed: 2 years’ ITR, P&L and Balance Sheet, Last 6 Months’ Bank Statement.",
-            icon: <Banknote className="w-8 h-8 text-[#F47E4D]" />
+            title: "Income Proof (Salaried)",
+            desc: "Latest 3 months salary slips and Form 16.",
+            icon: <Banknote className="w-6 h-6" />
         },
         {
-            title: "Business Proof",
-            desc: "Qualification Certificate/Certificate Of Practice (COP), Shop Act License/ MOA, AOA/ Sales Tax/ Vat Registration/ Partnership Deed.",
-            icon: <Briefcase className="w-8 h-8 text-[#F47E4D]" />
+            title: "Income Proof (Self-Employed)",
+            desc: "Latest 2 years ITR with computation of income, P&L, and Balance Sheet.",
+            icon: <Briefcase className="w-6 h-6" />
         },
         {
-            title: "Vehicle Proof",
-            desc: "Registration Certificate (RC), Vehicle Insurance Certificate, Pollution Under Control (PUC) Certificate, Road Tax Receipt, Chassis Number Imprint.",
-            icon: <Car className="w-8 h-8 text-[#F47E4D]" />
+            title: "Bank Statements",
+            desc: "Last 6 months bank statements showing salary credit or business transactions.",
+            icon: <FileText className="w-6 h-6" />
+        },
+        {
+            title: "Vehicle Documents (New Car)",
+            desc: "Proforma Invoice (Quotation) from the dealer.",
+            icon: <Car className="w-6 h-6" />
+        },
+        {
+            title: "Vehicle Documents (Used/Refinance)",
+            desc: "RC Copy, Insurance Copy, and Pollution Certificate.",
+            icon: <Car className="w-6 h-6" />
+        },
+        {
+            title: "Photographs",
+            desc: "Recent passport-size photographs of the applicant and co-applicant.",
+            icon: <Camera className="w-6 h-6" />
         }
     ];
 
+    const handleNavigation = () => {
+        // Standard JS navigation since Next.js router might not be available in preview
+        window.location.href = '/emi-calculator';
+    };
+
     return (
-        <section className="w-full py-10 md:py-20 bg-[#F8FAFC]">
-            {/* Padding kam kiya mobile ke liye (px-4) */}
+        <section className="w-full py-12 bg-white">
             <div className="container mx-auto px-4 md:px-12">
 
                 {/* --- Header Section --- */}
                 <motion.div
-                    className="mb-8 md:mb-12 text-center md:text-left" // Mobile pe center, Desktop pe left
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    className="mb-10"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.5 }}
                 >
-                    <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
-                        <FileCheck className="w-8 h-8 text-[#6D3078]" />
-                        <h2 className="text-2xl md:text-4xl font-bold text-[#F47E4D] uppercase tracking-wide">
+                    <div className="flex items-center gap-3 mb-3">
+                        <FileCheck className="w-7 h-7 text-[#6D3078]" />
+                        <h2 className="text-2xl md:text-3xl font-bold text-[#F47E4D] uppercase tracking-wide">
                             Documents Required
                         </h2>
                     </div>
-                    {/* Decorative Underline (Centered on mobile) */}
-                    <div className="w-24 h-1.5 bg-[#6D3078] rounded-full mb-6 mx-auto md:mx-0"></div>
+                    {/* Simple Line */}
+                    <div className="w-full h-px bg-slate-200 mb-6"></div>
 
-                    <p className="text-base md:text-lg text-[#6D3078]/80 max-w-3xl leading-relaxed mx-auto md:mx-0">
-                        Maitrii Loan Pvt Ltd. has simplified the process of securing a Business Loan. Please provide a self-attested copy of relevant documents from each category listed below.
+                    <p className="text-base text-slate-600 max-w-4xl leading-relaxed">
+                        To process your Vehicle Loan application smoothly, please provide self-attested copies of the following documents. The list may vary slightly based on the vehicle type (New vs. Used) and your employment type.
                     </p>
                 </motion.div>
 
-                {/* --- Documents Grid --- */}
+                {/* --- Documents List (Simple Grid) --- */}
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-10 md:mb-12"
+                    className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10"
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -88,42 +109,46 @@ const DocumentsRequired = () => {
                         <motion.div
                             key={index}
                             variants={itemVariants}
-                            // Flex col on mobile (Stack), Row on desktop
-                            className="bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl border border-slate-100 transition-all duration-300 group hover:-translate-y-1"
+                            // Clean, minimal card style
+                            className="flex items-start gap-4 p-5 rounded-lg border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-[#F47E4D] transition-colors duration-200"
                         >
-                            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 text-center sm:text-left">
-                                {/* Icon Box */}
-                                <div className="p-4 bg-[#F47E4D]/10 rounded-xl group-hover:bg-[#F47E4D] transition-colors duration-300 shrink-0">
-                                    {React.cloneElement(doc.icon, { className: "w-8 h-8 text-[#F47E4D] group-hover:text-white transition-colors" })}
-                                </div>
+                            {/* Simple Icon */}
+                            <div className="shrink-0 mt-0.5 text-[#F47E4D]">
+                                {doc.icon}
+                            </div>
 
-                                {/* Text Content */}
-                                <div>
-                                    <h3 className="text-lg md:text-xl font-bold text-[#6D3078] mb-2 md:mb-3 group-hover:text-[#F47E4D] transition-colors">
-                                        {doc.title}
-                                    </h3>
-                                    <p className="text-slate-600 leading-relaxed text-sm md:text-base">
-                                        {doc.desc}
-                                    </p>
-                                </div>
+                            {/* Text Content */}
+                            <div>
+                                <h3 className="text-base font-semibold text-[#6D3078] mb-1">
+                                    {doc.title}
+                                </h3>
+                                <p className="text-sm text-slate-500 leading-snug">
+                                    {doc.desc}
+                                </p>
                             </div>
                         </motion.div>
                     ))}
                 </motion.div>
 
-                {/* --- Footer Note & Button --- */}
+                {/* --- Footer Note & EMI Button --- */}
                 <motion.div
-                    className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-slate-200 text-center md:text-left"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 border-t border-slate-100"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.4 }}
+                    transition={{ delay: 0.2 }}
                 >
-                    <p className="text-xs md:text-sm text-slate-500 italic">
-                        * Requirement of documents might vary from case to case.
+                    <p className="text-xs text-slate-400 italic">
+                        * Additional documents may be requested during credit assessment.
                     </p>
 
-
+                    <button
+                        onClick={handleNavigation}
+                        className="flex items-center gap-2 px-6 py-2.5 bg-[#6D3078] text-white text-sm font-semibold rounded-md hover:bg-[#5a2565] transition-colors shadow-sm"
+                    >
+                        <Calculator size={18} />
+                        EMI Calculator
+                    </button>
                 </motion.div>
 
             </div>
@@ -131,4 +156,4 @@ const DocumentsRequired = () => {
     );
 };
 
-export default DocumentsRequired;
+export default VehicleLoanDocuments;

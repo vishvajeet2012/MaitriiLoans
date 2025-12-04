@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { UserCheck, MapPin, Banknote, Briefcase, Calculator, FileCheck, GraduationCap, FileText, Calendar, Home, FileSpreadsheet } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const DocumentsRequired = () => {
 
@@ -63,7 +64,7 @@ const DocumentsRequired = () => {
             icon: <FileText className="w-6 h-6" />
         }
     ];
-
+    const router = useRouter();
     return (
         <section className="w-full py-12 bg-white">
             <div className="container mx-auto px-4 md:px-12">
@@ -132,7 +133,7 @@ const DocumentsRequired = () => {
                         * Requirement of documents might vary from case to case.
                     </p>
 
-                    <button className="flex items-center gap-2 px-6 py-2.5 bg-[#6D3078] text-white text-sm font-semibold rounded-md hover:bg-[#5a2565] transition-colors">
+                    <button onClick={() => router.push('/emi-calculator')} className="flex items-center gap-2 px-6 py-2.5 bg-[#6D3078] text-white text-sm font-semibold rounded-md hover:bg-[#5a2565] transition-colors">
                         <Calculator size={18} />
                         EMI Calculator
                     </button>

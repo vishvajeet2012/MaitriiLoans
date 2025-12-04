@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus, ArrowRight } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
+import Image from 'next/image';
 
 const VehicleLoanInfo = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -46,10 +47,11 @@ const VehicleLoanInfo = () => {
                         transition={{ duration: 0.6 }}
                     >
                         {/* Image representing Car/Driving/Journey */}
-                        <img
+                        <Image
                             src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
                             alt="Vehicle Loan - Driving Car"
-                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                            fill
+                            className="object-cover hover:scale-105 transition-transform duration-700"
                         />
                         {/* Overlay effect */}
                         <div className="absolute inset-0 bg-gradient-to-t from-[#6D3078]/40 to-transparent"></div>
@@ -72,7 +74,7 @@ const VehicleLoanInfo = () => {
                                 VEHICLE LOAN
                             </h2>
                             <p className="text-[#6D3078]/90 text-lg leading-relaxed mb-4 font-medium italic">
-                                "Stop dreaming and start driving. Whether it's for your family's comfort or your business's logistics, we fuel your journey forward."
+                                &quot;Stop dreaming and start driving. Whether it&apos;s for your family&apos;s comfort or your business&apos;s logistics, we fuel your journey forward.&quot;
                             </p>
 
                             {/* Decorative Line */}
