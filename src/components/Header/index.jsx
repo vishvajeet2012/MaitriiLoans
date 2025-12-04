@@ -9,6 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Rounded from '../../common/RoundedButton';
 import Magnetic from '../../common/Magnetic';
 import maitriloans from "../../../public/images/MaitriiLoans.png"
+import Link from 'next/link';
 
 export default function Header() {
     const header = useRef(null);
@@ -67,19 +68,19 @@ export default function Header() {
                 <div className={styles.nav}>
                     <Magnetic>
                         <div className={styles.el}>
-                            <a>Work</a>
+                            <Link href="/">Home</Link>
                             <div className={styles.indicator}></div>
                         </div>
                     </Magnetic>
                     <Magnetic>
                         <div className={styles.el}>
-                            <a>About</a>
+                            <Link href="/about">About</Link>
                             <div className={styles.indicator}></div>
                         </div>
                     </Magnetic>
                     <Magnetic>
                         <div className={styles.el}>
-                            <a>Contact</a>
+                            <Link href="/charges">Charges</Link>
                             <div className={styles.indicator}></div>
                         </div>
                     </Magnetic>

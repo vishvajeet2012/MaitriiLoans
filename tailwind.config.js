@@ -6,7 +6,12 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        maitriiPurple: "#6D3078",
+        maitriiOrange: "#F47E4D",
+      },
+    },
   },
   plugins: [],
 }
