@@ -1,7 +1,7 @@
-.header{
+.header {
     position: absolute;
     display: flex;
-    z-index: 1;
+    z-index: 100;
     top: 0;
     color: white;
     padding: 35px;
@@ -10,15 +10,17 @@
     font-weight: 300;
     box-sizing: border-box;
     align-items: center;
-    
-    .logo{
+
+    .logo {
         display: flex;
         cursor: pointer;
-        p{
+
+        p {
             margin: 0px;
             transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
         }
-        .name{
+
+        .name {
             display: flex;
             position: relative;
             overflow: hidden;
@@ -27,23 +29,26 @@
             transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
         }
     }
-    .nav{
+
+    .nav {
         display: flex;
         align-items: center;
 
-        .el{
+        .el {
             display: flex;
             flex-direction: column;
             position: relative;
             z-index: 1;
             padding: 15px;
             cursor: pointer;
-            &:hover{
-                .indicator{
+
+            &:hover {
+                .indicator {
                     transform: scale(1);
                 }
             }
-            .indicator{
+
+            .indicator {
                 position: absolute;
                 width: 5px;
                 height: 5px;
@@ -55,10 +60,11 @@
                 transition: transform 0.2s cubic-bezier(0.76, 0, 0.24, 1);
             }
         }
-        a{
+
+        a {
             cursor: pointer;
         }
-    } 
+    }
 
     // --- RESPONSIVE HEADER ---
     @media (max-width: 768px) {
@@ -70,18 +76,18 @@
 
         .maitriLogo {
             // Mobile par logo thoda adjust kiya
-            width: 80px; 
+            width: 80px;
         }
     }
 }
 
-.headerButtonContainer{
+.headerButtonContainer {
     transform: scale(0);
     position: fixed;
     right: 0px;
-    z-index: 4;
+    z-index: 2000;
 
-    .button{
+    .button {
         position: relative;
         margin: 20px;
         width: 80px;
@@ -93,12 +99,14 @@
         align-items: center;
         justify-content: center;
     }
-    
-    .burger{
+
+    .burger {
         width: 100%;
         position: relative;
-        z-index: 1;
-        &::after, &::before{
+        z-index: 10000;
+
+        &::after,
+        &::before {
             content: "";
             display: block;
             height: 1px;
@@ -108,34 +116,34 @@
             position: relative;
             transition: transform 0.3s;
         }
-    
-        &::after{
+
+        &::after {
             top: -5px;
         }
-    
-        &::before{
+
+        &::before {
             top: 5px;
         }
     }
-    
-    .burgerActive{
-    
-        &::after{
+
+    .burgerActive {
+
+        &::after {
             transform: rotate(45deg);
             top: -1px;
         }
-    
-        &::before{
+
+        &::before {
             transform: rotate(-45deg);
             top: 0px;
         }
-        
+
     }
 
     // --- RESPONSIVE BUTTON ---
     @media (max-width: 768px) {
         top: 0; // Top align fix
-        
+
         .button {
             width: 60px; // Button thoda chhota kiya mobile ke liye
             height: 60px;
@@ -144,7 +152,7 @@
     }
 }
 
-.maitriLogo{
+.maitriLogo {
     width: 100px;
     height: auto;
 }

@@ -58,7 +58,7 @@ const NetworkMap = () => {
   const [activeState, setActiveState] = useState("Rajasthan");
   // Hover State: Track karega ki abhi mouse kis city par hai
   const [hoveredMarker, setHoveredMarker] = useState(null);
-  
+
   const currentData = stateConfig[activeState];
 
   // Logic: Hover wale marker ko list ke end mein bhejo taaki wo sabse upar dikhe (Z-Index trick)
@@ -73,25 +73,23 @@ const NetworkMap = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4">
       <h1 className="text-3xl font-bold text-gray-800 mb-6">{activeState} Network</h1>
-      
+
       {/* Toggle Buttons */}
       <div className="flex bg-gray-200 p-1 rounded-full mb-6 shadow-sm">
         <button
-          className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-            activeState === "Rajasthan"
-              ? "bg-[#6D3078] text-white shadow-md"
-              : "text-gray-600 hover:text-gray-800"
-          }`}
+          className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${activeState === "Rajasthan"
+            ? "bg-[#6D3078] text-white shadow-md"
+            : "text-gray-600 hover:text-gray-800"
+            }`}
           onClick={() => setActiveState("Rajasthan")}
         >
           Rajasthan
         </button>
         <button
-          className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-            activeState === "Madhya Pradesh"
-              ? "bg-[#6D3078] text-white shadow-md"
-              : "text-gray-600 hover:text-gray-800"
-          }`}
+          className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${activeState === "Madhya Pradesh"
+            ? "bg-[#6D3078] text-white shadow-md"
+            : "text-gray-600 hover:text-gray-800"
+            }`}
           onClick={() => setActiveState("Madhya Pradesh")}
         >
           Madhya Pradesh
@@ -99,7 +97,7 @@ const NetworkMap = () => {
       </div>
 
       <div className="w-full max-w-5xl h-[700px] border rounded-xl shadow-lg bg-white overflow-hidden relative transition-all duration-500">
-        
+
         <ComposableMap
           projection="geoMercator"
           projectionConfig={currentData.projectionConfig}
@@ -143,8 +141,8 @@ const NetworkMap = () => {
               const isHovered = hoveredMarker === name;
 
               return (
-                <Marker 
-                  key={name} 
+                <Marker
+                  key={name}
                   coordinates={coordinates}
                   onMouseEnter={() => setHoveredMarker(name)}
                   onMouseLeave={() => setHoveredMarker(null)}
@@ -156,10 +154,10 @@ const NetworkMap = () => {
                     transformOrigin "12px 24px" is the bottom tip of the pin.
                   */}
                   <g transform="translate(-12, -24)">
-                    <g 
-                      style={{ 
+                    <g
+                      style={{
                         transition: "all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)", // Bouncy effect
-                        transform: isHovered ? "scale(1.5)" : "scale(1)", 
+                        transform: isHovered ? "scale(1.5)" : "scale(1)",
                         transformOrigin: "12px 24px" // Scale from the bottom tip
                       }}
                     >
@@ -172,7 +170,7 @@ const NetworkMap = () => {
                         className="drop-shadow-md"
                       />
                       <circle cx="12" cy="10" r="3" fill="white" />
-                      
+
                       {/* Text Logic */}
                       <text
                         x="12"
@@ -211,12 +209,12 @@ const NetworkMap = () => {
         {/* --- LEGEND --- */}
         <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm border border-gray-200 p-4 rounded-lg shadow-lg">
           <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Legend</h4>
-          
+
           <div className="flex items-center mb-2">
             <span className="w-3 h-3 rounded-full mr-2" style={{ backgroundColor: COLOR_CURRENT }}></span>
             <span className="text-sm text-gray-700 font-medium">Currently Working</span>
           </div>
-          
+
           <div className="flex items-center">
             <span className="w-3 h-3 rounded-full mr-2" style={{ backgroundColor: COLOR_PROPOSED }}></span>
             <span className="text-sm text-gray-700 font-medium">Proposed</span>

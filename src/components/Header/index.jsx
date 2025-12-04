@@ -16,36 +16,36 @@ export default function Header() {
     const pathname = usePathname();
     const button = useRef(null);
 
-    useEffect( () => {
-      if(isActive) setIsActive(false)
-    }, [pathname, isActive])
+    useEffect(() => {
+        if (isActive) setIsActive(false)
+    }, [pathname])
 
-    useLayoutEffect( () => {
+    useLayoutEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
-        
+
         let mm = gsap.matchMedia();
 
         mm.add({
-          
+
             isDesktop: "(min-width: 769px)",
             isMobile: "(max-width: 768px)",
         }, (context) => {
             let { isDesktop, isMobile } = context.conditions;
 
-            if(isDesktop) {
+            if (isDesktop) {
                 // Desktop logic: Button starts hidden (scale 0) and appears on scroll
                 gsap.to(button.current, {
                     scrollTrigger: {
                         trigger: document.documentElement,
                         start: 0,
                         end: window.innerHeight,
-                        onLeave: () => {gsap.to(button.current, {scale: 1, duration: 0.25, ease: "power1.out"})},
-                        onEnterBack: () => {gsap.to(button.current, {scale: 0, duration: 0.25, ease: "power1.out"}, setIsActive(false))}
+                        onLeave: () => { gsap.to(button.current, { scale: 1, duration: 0.25, ease: "power1.out" }) },
+                        onEnterBack: () => { gsap.to(button.current, { scale: 0, duration: 0.25, ease: "power1.out" }, setIsActive(false)) }
                     }
                 });
-            } 
-            
-            if(isMobile) {
+            }
+
+            if (isMobile) {
                 gsap.set(button.current, { scale: 1 });
             }
         });
@@ -56,44 +56,44 @@ export default function Header() {
 
     return (
         <>
-        <div ref={header} className={styles.header}>
-            <div className={styles.logo}>
-                <div className={styles.name}>
-                    {/* <img src={maitriloans.src} className={styles.maitriLogo}  alt="Maitrii Loans Logo"/> */}
+            <div ref={header} className={styles.header}>
+                <div className={styles.logo}>
+                    <div className={styles.name}>
+                        {/* <img src={maitriloans.src} className={styles.maitriLogo}  alt="Maitrii Loans Logo"/> */}
+                    </div>
+                </div>
+
+                {/* Desktop Navigation Links */}
+                <div className={styles.nav}>
+                    <Magnetic>
+                        <div className={styles.el}>
+                            <a>Work</a>
+                            <div className={styles.indicator}></div>
+                        </div>
+                    </Magnetic>
+                    <Magnetic>
+                        <div className={styles.el}>
+                            <a>About</a>
+                            <div className={styles.indicator}></div>
+                        </div>
+                    </Magnetic>
+                    <Magnetic>
+                        <div className={styles.el}>
+                            <a>Contact</a>
+                            <div className={styles.indicator}></div>
+                        </div>
+                    </Magnetic>
                 </div>
             </div>
-            
-            {/* Desktop Navigation Links */}
-            <div className={styles.nav}>
-                <Magnetic>
-                    <div className={styles.el}>
-                        <a>Work</a>
-                        <div className={styles.indicator}></div>
-                    </div>
-                </Magnetic>
-                <Magnetic>
-                    <div className={styles.el}>
-                        <a>About</a>
-                        <div className={styles.indicator}></div>
-                    </div>
-                </Magnetic>
-                <Magnetic>
-                    <div className={styles.el}>
-                        <a>Contact</a>
-                        <div className={styles.indicator}></div>
-                    </div>
-                </Magnetic>
-            </div>
-        </div>
 
-        <div ref={button} className={styles.headerButtonContainer}>
-            <Rounded onClick={() => {setIsActive(!isActive)}} className={`${styles.button}`}>
-                <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
-            </Rounded>
-        </div>
-        <AnimatePresence mode="wait">
-            {isActive && <Nav />}
-        </AnimatePresence>
+            <div ref={button} className={styles.headerButtonContainer}>
+                <Rounded onClick={() => { setIsActive(!isActive) }} className={`${styles.button}`}>
+                    <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
+                </Rounded>
+            </div>
+            <AnimatePresence mode="wait">
+                {isActive && <Nav />}
+            </AnimatePresence>
         </>
     )
 }
