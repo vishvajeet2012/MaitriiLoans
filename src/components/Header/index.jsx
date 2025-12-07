@@ -22,90 +22,12 @@ export default function Header() {
     }, [pathname])
 
     useLayoutEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-
-        let mm = gsap.matchMedia();
-
-        mm.add({
-
-            isDesktop: "(min-width: 769px)",
-            isMobile: "(max-width: 768px)",
-        }, (context) => {
-            let { isDesktop, isMobile } = context.conditions;
-
-            if (isDesktop) {
-                // Desktop logic: Button starts hidden (scale 0) and appears on scroll
-                gsap.to(button.current, {
-                    scrollTrigger: {
-                        trigger: document.documentElement,
-                        start: 0,
-                        end: window.innerHeight,
-                        onLeave: () => { gsap.to(button.current, { scale: 1, duration: 0.25, ease: "power1.out" }) },
-                        onEnterBack: () => { gsap.to(button.current, { scale: 0, duration: 0.25, ease: "power1.out" }, setIsActive(false)) }
-                    }
-                });
-            }
-
-            if (isMobile) {
-                gsap.set(button.current, { scale: 1 });
-            }
-        });
-
-        // Cleanup function
-        return () => mm.revert();
+        // Circular button always visible from start
+        gsap.set(button.current, { scale: 1 });
     }, [])
 
     return (
         <>
-            <div ref={header} className={styles.header}>
-                <div className={styles.logo}>
-                    <div className={styles.name}>
-                        {/* <img src={maitriloans.src} className={styles.maitriLogo}  alt="Maitrii Loans Logo"/> */}
-                    </div>
-                </div>
-
-                {/* Desktop Navigation Links */}
-                <div className={styles.nav}>
-                    <Magnetic>
-                        <div className={styles.el}>
-                            <Link href="/">Home</Link>
-                            <div className={styles.indicator}></div>
-                        </div>
-                    </Magnetic>
-
-                    <Magnetic>
-                        <div className={styles.el}>
-                            <Link href="/product/personal-loan">Personal Loan</Link>
-                            <div className={styles.indicator}></div>
-                        </div>
-                    </Magnetic>
-                    <Magnetic>
-                        <div className={styles.el}>
-                            <Link href="/product/business-loan">Business Loan</Link>
-                            <div className={styles.indicator}></div>
-                        </div>
-                    </Magnetic>
-                    <Magnetic>
-                        <div className={styles.el}>
-                            <Link href="/product/vehicle-loan">Vehicle Loan</Link>
-                            <div className={styles.indicator}></div>
-                        </div>
-                    </Magnetic>
-                    <Magnetic>
-                        <div className={styles.el}>
-                            <Link href="/product/mortgage">Mortgage Loan</Link>
-                            <div className={styles.indicator}></div>
-                        </div>
-                    </Magnetic>
-
-                    <Magnetic>
-                        <div className={styles.el}>
-                            <Link href="/about">About</Link>
-                            <div className={styles.indicator}></div>
-                        </div>
-                    </Magnetic>
-                </div>
-            </div>
 
             <div ref={button} className={styles.headerButtonContainer}>
                 <Rounded onClick={() => { setIsActive(!isActive) }} className={`${styles.button}`}>

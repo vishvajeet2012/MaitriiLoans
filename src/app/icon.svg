@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280">
+  <g id="Maitri_Text" fill="#f37920">
+    <rect x="10" y="70" width="540" height="10"/>
+
+    <path d="M38,85 L60,85 L85,135 L110,85 L132,85 L132,190 L110,190 L110,130 L90,170 L80,170 L60,130 L60,190 L38,190 Z"/>
+
+    <path d="M182,190 L212,190 L220,165 L258,165 L266,190 L296,190 L248,85 L228,85 Z M228,140 L239,105 L250,140 Z"/>
+
+    <rect x="318" y="85" width="24" height="105"/>
+    <rect x="318" y="40" width="24" height="24"/>
+
+    <path d="M455,85 L475,85 L475,200 L470,205 L455,200 L455,85 Z"/>
+    <path d="M500,80 L520,80 L520,260 L500,250 Z"/>
+    
+    <path d="M455,145 C455,145 425,145 425,125 C425,105 450,105 450,125 L465,125 C465,95 435,85 410,100 C390,115 390,135 415,150 C425,155 450,160 440,175 C430,190 390,190 380,180 L380,200 C400,215 455,200 455,160 Z"/>
+    
+    <path d="M470,70 C470,70 470,20 440,20 C420,20 420,50 440,50 L435,65 C400,60 400,10 445,5 C490,0 500,50 510,65 L480,70 Z"/>
+  </g>
+
+  <g id="Loans_Text">
+    <text x="40" y="260" font-family="sans-serif" font-weight="bold" font-size="58" letter-spacing="0.6em" fill="#58595b">LOANS</text>
+    
+    <g transform="translate(555, 60)">
+       <circle cx="15" cy="15" r="14" fill="none" stroke="#58595b" stroke-width="2"/>
+       <text x="8" y="21" font-family="Arial" font-weight="bold" font-size="18" fill="#58595b">R</text>
+    </g>
+  </g>
+</svg>
