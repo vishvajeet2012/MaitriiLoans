@@ -127,8 +127,8 @@ const businessLinesData = [
         ul: [
           "Only KYC + Income proof + Property docs",
           "ITR not mandatory in most cases",
-          "12+ income proof options accepted",
-          "Flexible co-applicant rules"
+          "Undocumented income proof options accepted ",
+          "Flexible co-applicant and guarantor rules "
         ]
       }
     ],
@@ -171,7 +171,7 @@ const businessLinesData = [
     icon: <RepaymentIcon />,
     data: [
       {
-        paragraph: "Tenure up to 30 years with flexible EMIs.",
+        paragraph: "Tenure up to 10 years with flexible EMIs.",
         ul: [
           "EMI / Step-up / Flexible repayment plans",
           "Longest tenure up to 30 years",
