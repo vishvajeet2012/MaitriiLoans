@@ -139,7 +139,7 @@ const businessLinesData = [
     icon: <LowInterestIcon />,
     data: [
       {
-        paragraph: "Starting @ just 8.50%* p.a.",
+        paragraph: "Starting @ just 12%* p.a.",
         ul: [
           "Lowest rates based on profile",
           "Special rates for women applicants",
