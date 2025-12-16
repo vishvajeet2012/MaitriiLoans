@@ -91,6 +91,16 @@ const Footer = () => {
                   Reserve Bank of India
                 </a>
               </li>
+                 <li>
+                <a
+                  href="https://www.rbi.org.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity"
+                >
+Grievances Redressal
+                </a>
+              </li>
             </ul>
           </div>
 

@@ -86,14 +86,7 @@ const ContactUs = () => {
 
                 {/* Layer 3: Content (Text - Dark for White BG) */}
                 <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-6 pt-20">
-                    <motion.span 
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="inline-block py-1 px-3 rounded-full bg-[#F47E4D]/10 border border-[#F47E4D] text-[#F47E4D] text-sm font-bold mb-4"
-                    >
-                        24/7 SUPPORT
-                    </motion.span>
+             
                     <motion.h1 
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -131,17 +124,7 @@ const ContactUs = () => {
                             
                             <div className="space-y-8">
                                 {/* Registered Office */}
-                                <div className="flex items-start gap-4 group">
-                                    <div className="p-3 bg-[#F3E8FF] rounded-xl text-[#6D3078] group-hover:bg-[#6D3078] group-hover:text-white transition-colors duration-300">
-                                        <MapPin size={24} />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-bold text-slate-800 text-lg">Registered Office</h3>
-                                        <p className="text-slate-500 text-sm leading-relaxed mt-1">
-                                            A-156, Vidhyut Nagar-A, Ajmer Road,<br/> Jaipur - 302021
-                                        </p>
-                                    </div>
-                                </div>
+                             
 
                                 {/* Corporate Office */}
                                 <div className="flex items-start gap-4 group">
@@ -149,7 +132,7 @@ const ContactUs = () => {
                                         <MapPin size={24} />
                                     </div>
                                     <div>
-                                        <h3 className="font-bold text-slate-800 text-lg">Corporate Office</h3>
+                                        <h3 className="font-bold text-slate-800 text-lg">Head Office</h3>
                                         <p className="text-slate-500 text-sm leading-relaxed mt-1">
                                             11/70 Madhyam Marg, Mansarovar,<br/> Jaipur - 302020
                                         </p>
