@@ -101,12 +101,7 @@ const Footer = () => {
             </h3>
 
             <div className="space-y-4">
-              <div className="flex items-start text-[0.9rem] text-gray-500">
-                <MapPin className="w-[18px] h-[18px] text-[#6D3078] mr-3 mt-[3px] shrink-0" />
-                <span className="leading-relaxed">
-                  RO/- A-156, Vidhyut Nagar-A, Ajmer Road, Jaipur - 302021
-                </span>
-              </div>
+             
 
               <div className="flex items-start text-[0.9rem] text-gray-500">
                 <MapPin className="w-[18px] h-[18px] text-[#6D3078] mr-3 mt-[3px] shrink-0" />
@@ -135,7 +130,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-gray-700 text-sm">
             © 2025 <span className="font-semibold">MENTOR FINMART PVT. LTD.</span> All rights reserved.
-            <span className="block mt-2 font-bold text-black">CIN No.: U65910RJ1989PTC004948</span>
+            <span className="block mt-2 font-bold text-black">CIN No.: U65910RJ1989PTC004938</span>
           </p>
         </div>
       </div>
