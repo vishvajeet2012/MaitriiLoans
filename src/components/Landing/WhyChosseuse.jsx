@@ -174,7 +174,7 @@ const businessLinesData = [
         paragraph: "Tenure up to 10 years with flexible EMIs.",
         ul: [
           "EMI / Step-up / Flexible repayment plans",
-          "Longest tenure up to 30 years",
+          "Longest tenure up to 10 years",
           "Multiple payment modes (UPI, Auto-debit)",
           "Part-prepayment without charges"
         ]
