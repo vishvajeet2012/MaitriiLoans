@@ -6,7 +6,7 @@ import Header from '../components/Header';
 import Footer from '@/common/fotter/footer';
 import FloatingContact from '@/components/FloatingContact';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata = {
   title: 'Maitrii Loans | Mentor Finmart Pvt. Ltd. - Trusted Finance Company in Rajasthan',
@@ -24,7 +24,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} ${inter.variable}`}>
         <Header />
         {children}
         <FloatingContact />

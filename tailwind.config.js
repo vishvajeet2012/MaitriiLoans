@@ -11,6 +11,9 @@ module.exports = {
         maitriiPurple: "#6D3078",
         maitriiOrange: "#F47E4D",
       },
+      fontFamily: {
+        sans: ['var(--font-inter)', 'sans-serif'],
+      },
     },
   },
   plugins: [],
