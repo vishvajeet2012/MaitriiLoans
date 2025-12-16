@@ -162,7 +162,7 @@ const ProductPageTemplate = ({ hero, info, documents, whyChooseUs }) => {
                 </section>
             )}
 
-             {/* ==================== DOCUMENTS REQUIRED SECTION ==================== */}
+             {/* ==================== DOCUMENTS REQUIRED SECTION where ecyer page document where page =========== */}
              <section className="w-full py-12 bg-white">
                 <div className="container mx-auto px-4 md:px-12">
                     <motion.div
