@@ -31,7 +31,7 @@ const GrievancesRedressal = () => {
                 {/* Detailed Contact Information (Grid) */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
                     
-                    {/* Level 1 Card
+                    {/* Level 1 Card */}
                     <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -59,10 +59,10 @@ const GrievancesRedressal = () => {
                                 <p>0141-4161551 | Toll Free: 1800-103-9039</p>
                             </div>
                         </div>
-                    </motion.div> */}
+                    </motion.div>
 
                     {/* Level 2 Card */}
-                    {/* <motion.div 
+                    <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
@@ -89,12 +89,12 @@ const GrievancesRedressal = () => {
                                 <p>0141-4161552 | Toll Free: 1800-103-9039</p>
                             </div>
                         </div>
-                    </motion.div> */}
+                    </motion.div>
 
                 </div>
 
                 {/* Level 3: RBI Appeal */}
-                {/* <motion.div 
+                <motion.div 
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     className="bg-[#1E293B] text-white p-8 md:p-12 rounded-3xl relative overflow-hidden mb-20"
@@ -121,15 +121,15 @@ const GrievancesRedressal = () => {
                             </a>
                         </div>
                     </div>
-                </motion.div> */}
+                </motion.div>
 
                 {/* Additional Policy Info */}
-                 {/* <div className="prose prose-slate max-w-4xl mx-auto text-slate-600">
+                 <div className="prose prose-slate max-w-4xl mx-auto text-slate-600">
                     <h3 className="text-[#6D3078]">Complaints against Outsourced Vendors</h3>
                     <p>
                         Any complaint forwarded to the Company from an outsourced vendor or lodged by the customer regarding an outsourced vendor shall be handled in accordance with the terms of this policy document.
                     </p>
-                </div> */}
+                </div>
 
             </div>
         </main>
