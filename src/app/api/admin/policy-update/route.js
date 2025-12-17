@@ -20,7 +20,7 @@ async function verifySuperadmin() {
   return user;
 }
 
-// GET - Fetch current policy settings
+// GET - Fetch current policy settings (for admin view)
 export async function GET() {
   try {
     await connectToDatabase();
@@ -30,7 +30,19 @@ export async function GET() {
     }
 
     const policy = await PolicyUpdate.findOne().sort({ updatedAt: -1 });
-    return NextResponse.json({ policy: policy || null }, { status: 200 });
+    
+    if (policy) {
+      // Check if expired for admin display
+      const isExpired = policy.expiryDate && new Date() > new Date(policy.expiryDate);
+      return NextResponse.json({ 
+        policy: {
+          ...policy.toObject(),
+          isExpired
+        }
+      }, { status: 200 });
+    }
+    
+    return NextResponse.json({ policy: null }, { status: 200 });
   } catch (error) {
     console.error("Admin Policy Fetch Error:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
@@ -46,16 +58,42 @@ export async function POST(req) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { title, type, url, isEnabled } = await req.json();
+    const { title, type, pdfData, pdfName, url, isEnabled, expiryDate } = await req.json();
 
-    if (!type || !url) {
-      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    if (!type) {
+      return NextResponse.json({ error: "Type is required" }, { status: 400 });
+    }
+
+    // Validate based on type
+    if (type === 'pdf' && !pdfData) {
+      return NextResponse.json({ error: "PDF file is required" }, { status: 400 });
+    }
+    if (type === 'link' && !url) {
+      return NextResponse.json({ error: "URL is required" }, { status: 400 });
+    }
+
+    // Build update object
+    const updateData = {
+      title: title || 'Policy Update',
+      type,
+      isEnabled: isEnabled ?? false,
+      expiryDate: expiryDate ? new Date(expiryDate) : null
+    };
+
+    if (type === 'pdf') {
+      updateData.pdfData = pdfData;
+      updateData.pdfName = pdfName || 'policy.pdf';
+      updateData.url = null; // Clear URL if switching to PDF
+    } else {
+      updateData.url = url;
+      updateData.pdfData = null; // Clear PDF data if switching to link
+      updateData.pdfName = null;
     }
 
     // Upsert - only one policy record
     const policy = await PolicyUpdate.findOneAndUpdate(
       {},
-      { title: title || 'Policy Update', type, url, isEnabled: isEnabled ?? false },
+      updateData,
       { upsert: true, new: true }
     );
 

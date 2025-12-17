@@ -1,18 +1,24 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { FileText, Link2, Save, ToggleLeft, ToggleRight } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { FileText, Link2, Save, ToggleLeft, ToggleRight, Upload, Calendar, AlertTriangle } from 'lucide-react';
 import axios from 'axios';
 
 const PolicyManager = () => {
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [fileName, setFileName] = useState('');
+    const fileInputRef = useRef(null);
+    
     const [formData, setFormData] = useState({
         title: 'Policy Update',
         type: 'link',
         url: '',
-        isEnabled: false
+        isEnabled: false,
+        expiryDate: ''
     });
+    const [isExpired, setIsExpired] = useState(false);
 
     useEffect(() => {
         fetchPolicy();
@@ -26,8 +32,11 @@ const PolicyManager = () => {
                     title: data.policy.title || 'Policy Update',
                     type: data.policy.type || 'link',
                     url: data.policy.url || '',
-                    isEnabled: data.policy.isEnabled || false
+                    isEnabled: data.policy.isEnabled || false,
+                    expiryDate: data.policy.expiryDate ? new Date(data.policy.expiryDate).toISOString().split('T')[0] : ''
                 });
+                setFileName(data.policy.pdfName || '');
+                setIsExpired(data.policy.isExpired || false);
             }
         } catch (error) {
             console.error("Fetch Error:", error);
@@ -36,12 +45,69 @@ const PolicyManager = () => {
         }
     };
 
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        // Check file size (4MB max)
+        if (file.size > 4 * 1024 * 1024) {
+            alert('File size must be less than 4MB. Please compress the PDF first.');
+            return;
+        }
+
+        if (file.type !== 'application/pdf') {
+            alert('Only PDF files are allowed.');
+            return;
+        }
+
+        setSelectedFile(file);
+        setFileName(file.name);
+    };
+
+    const fileToBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                // Remove data:application/pdf;base64, prefix
+                const base64 = reader.result.split(',')[1];
+                resolve(base64);
+            };
+            reader.onerror = reject;
+        });
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setSaving(true);
+
         try {
-            await axios.post('/api/admin/policy-update', formData);
+            let payload = {
+                title: formData.title,
+                type: formData.type,
+                isEnabled: formData.isEnabled,
+                expiryDate: formData.expiryDate || null
+            };
+
+            if (formData.type === 'pdf') {
+                if (selectedFile) {
+                    const pdfData = await fileToBase64(selectedFile);
+                    payload.pdfData = pdfData;
+                    payload.pdfName = selectedFile.name;
+                } else if (!fileName) {
+                    alert('Please select a PDF file');
+                    setSaving(false);
+                    return;
+                }
+                // If no new file but fileName exists, keep existing PDF
+            } else {
+                payload.url = formData.url;
+            }
+
+            await axios.post('/api/admin/policy-update', payload);
             alert('Policy updated successfully!');
+            setSelectedFile(null);
+            fetchPolicy(); // Refresh
         } catch (error) {
             alert('Failed to update policy');
             console.error(error);
@@ -58,9 +124,15 @@ const PolicyManager = () => {
         <div className="p-6 max-w-2xl mx-auto">
             <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
                 {/* Header */}
-                <div className="bg-gradient-to-r from-[#6D3078] to-[#F47E4D] p-6">
+                <div className="bg-gradient-to-r from-[#6D3078] to-[#F47E4D] p-6 relative">
                     <h2 className="text-xl font-bold text-white">Policy Update Notification</h2>
                     <p className="text-white/70 text-sm mt-1">Manage the notification shown to all users</p>
+                    {isExpired && (
+                        <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                            <AlertTriangle size={14} />
+                            EXPIRED
+                        </div>
+                    )}
                 </div>
 
                 <form onSubmit={handleSubmit} className="p-6 space-y-6">
@@ -77,6 +149,22 @@ const PolicyManager = () => {
                         >
                             {formData.isEnabled ? <ToggleRight size={24} /> : <ToggleLeft size={24} />}
                         </button>
+                    </div>
+
+                    {/* Expiry Date */}
+                    <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2 flex items-center gap-2">
+                            <Calendar size={16} />
+                            Expiry Date
+                        </label>
+                        <input
+                            type="date"
+                            value={formData.expiryDate}
+                            onChange={(e) => setFormData({ ...formData, expiryDate: e.target.value })}
+                            min={new Date().toISOString().split('T')[0]}
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#6D3078] outline-none"
+                        />
+                        <p className="text-xs text-slate-400 mt-1">Notification will hide from users after this date</p>
                     </div>
 
                     {/* Title */}
@@ -97,18 +185,6 @@ const PolicyManager = () => {
                         <div className="flex gap-4">
                             <button
                                 type="button"
-                                onClick={() => setFormData({ ...formData, type: 'link' })}
-                                className={`flex-1 flex items-center justify-center gap-2 p-4 rounded-xl border-2 transition-all ${
-                                    formData.type === 'link' 
-                                        ? 'border-[#6D3078] bg-purple-50 text-[#6D3078]' 
-                                        : 'border-slate-200 text-slate-500'
-                                }`}
-                            >
-                                <Link2 size={20} />
-                                <span className="font-medium">Web Link</span>
-                            </button>
-                            <button
-                                type="button"
                                 onClick={() => setFormData({ ...formData, type: 'pdf' })}
                                 className={`flex-1 flex items-center justify-center gap-2 p-4 rounded-xl border-2 transition-all ${
                                     formData.type === 'pdf' 
@@ -117,30 +193,58 @@ const PolicyManager = () => {
                                 }`}
                             >
                                 <FileText size={20} />
-                                <span className="font-medium">PDF Download</span>
+                                <span className="font-medium">Upload PDF</span>
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setFormData({ ...formData, type: 'link' })}
+                                className={`flex-1 flex items-center justify-center gap-2 p-4 rounded-xl border-2 transition-all ${
+                                    formData.type === 'link' 
+                                        ? 'border-[#6D3078] bg-purple-50 text-[#6D3078]' 
+                                        : 'border-slate-200 text-slate-500'
+                                }`}
+                            >
+                                <Link2 size={20} />
+                                <span className="font-medium">Page Link</span>
                             </button>
                         </div>
                     </div>
 
-                    {/* URL */}
-                    <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">
-                            {formData.type === 'pdf' ? 'PDF URL' : 'Page Link'}
-                        </label>
-                        <input
-                            type="url"
-                            value={formData.url}
-                            onChange={(e) => setFormData({ ...formData, url: e.target.value })}
-                            placeholder={formData.type === 'pdf' ? 'https://example.com/policy.pdf' : 'https://example.com/policy-page'}
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#6D3078] outline-none"
-                            required
-                        />
-                        <p className="text-xs text-slate-400 mt-2">
-                            {formData.type === 'pdf' 
-                                ? 'Users will download this PDF when clicking the notification.' 
-                                : 'Users will be redirected to this page when clicking the notification.'}
-                        </p>
-                    </div>
+                    {/* Conditional Input */}
+                    {formData.type === 'pdf' ? (
+                        <div>
+                            <label className="block text-sm font-medium text-slate-700 mb-2">PDF File (Max 4MB)</label>
+                            <div 
+                                onClick={() => fileInputRef.current?.click()}
+                                className="w-full p-6 border-2 border-dashed border-slate-200 rounded-xl cursor-pointer hover:border-[#F47E4D] transition-colors text-center"
+                            >
+                                <Upload size={32} className="mx-auto text-slate-400 mb-2" />
+                                {fileName ? (
+                                    <p className="text-sm text-[#F47E4D] font-medium">{fileName}</p>
+                                ) : (
+                                    <p className="text-sm text-slate-500">Click to select PDF</p>
+                                )}
+                            </div>
+                            <input
+                                ref={fileInputRef}
+                                type="file"
+                                accept=".pdf"
+                                onChange={handleFileChange}
+                                className="hidden"
+                            />
+                        </div>
+                    ) : (
+                        <div>
+                            <label className="block text-sm font-medium text-slate-700 mb-2">Page Link</label>
+                            <input
+                                type="url"
+                                value={formData.url}
+                                onChange={(e) => setFormData({ ...formData, url: e.target.value })}
+                                placeholder="https://example.com/policy-page"
+                                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#6D3078] outline-none"
+                            />
+                        </div>
+                    )}
 
                     {/* Save Button */}
                     <button

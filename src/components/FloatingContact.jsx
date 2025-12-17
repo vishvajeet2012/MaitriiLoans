@@ -28,16 +28,10 @@ const FloatingContact = () => {
     const handlePolicyClick = () => {
         if (!policyUpdate) return;
         
-        if (policyUpdate.type === 'pdf') {
-            // Download PDF
-            const link = document.createElement('a');
-            link.href = policyUpdate.url;
-            link.download = policyUpdate.title || 'policy.pdf';
-            link.target = '_blank';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        } else {
+        if (policyUpdate.hasPdf || policyUpdate.type === 'pdf') {
+            // Download PDF via API
+            window.open('/api/policy-update/download', '_blank');
+        } else if (policyUpdate.url) {
             // Open link in new tab
             window.open(policyUpdate.url, '_blank');
         }

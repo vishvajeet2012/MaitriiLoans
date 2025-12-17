@@ -18,11 +18,25 @@ export async function GET() {
       });
     }
 
+    // Check if expired
+    if (policy.expiryDate && new Date() > new Date(policy.expiryDate)) {
+      // Expired - don't show to users
+      return NextResponse.json({ policy: null }, { 
+        status: 200,
+        headers: {
+          'Cache-Control': 'public, s-maxage=43200, stale-while-revalidate=3600' // 12h cache
+        }
+      });
+    }
+
+    // Return policy without pdfData (large), just metadata
     return NextResponse.json({ 
       policy: {
         title: policy.title,
         type: policy.type,
-        url: policy.url
+        url: policy.url, // For link type
+        pdfName: policy.pdfName, // For PDF type
+        hasPdf: !!policy.pdfData // Boolean indicator
       }
     }, { 
       status: 200,
