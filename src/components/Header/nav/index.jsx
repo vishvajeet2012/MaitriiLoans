@@ -19,8 +19,7 @@ const navItems = [
     href: "#", // Placeholder
     subItems: [
         { title: "Home Loan", href: "/product/home-loan" },
-        { title: "Personal Loan", href: "/product/personal-loan" },
-        { title: "Business Loan", href: "/product/business-loan" },
+        { title: "Business & Personal Loan", href: "/product/personal-loan" },
         { title: "Vehicle Loan", href: "/product/vehicle-loan" },
         { title: "Mortgage Loan", href: "/product/mortgage" },
         { title: "MSME", href: "/product/msme" },

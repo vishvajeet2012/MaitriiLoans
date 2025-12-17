@@ -12,6 +12,7 @@ import { Howtogetloans } from '@/components/Landing/howLoans/HowtogetLoans';
 import WhyChooseUs from '@/components/Landing/WhyChosseuse';
 import OurProduct from '@/components/Landing/ourProdcut';
 import NetworkMap from '@/components/Landing/rajasthanMap';
+import YourNextFinanclegoal from '@/components/Landing/YourNextFinanclegoal';
 
 export default function Home() {
 
@@ -42,6 +43,7 @@ export default function Home() {
       <Howtogetloans />
       <OurProduct />
       <WhyChooseUs />
+      <YourNextFinanclegoal/>
       <NetworkMap />
       {/* <Projects />
       <SlidingImages />

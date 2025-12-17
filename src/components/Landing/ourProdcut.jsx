@@ -35,7 +35,7 @@ const services = [
       `Loan Amount: 3 to 50 lakh`,
       `Tenure: 2 to 7 years`,
       `Cibil Score: Minimum 620 (Condition Apply)`
-    ], // Comma fixed
+    ],
     link: "/product/msme"
   },
   {

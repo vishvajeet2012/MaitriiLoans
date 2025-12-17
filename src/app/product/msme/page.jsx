@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ProductPageTemplate from '@/components/ProductPageTemplate';
-import WhyChooseUs from '../business-loan/whyChooseus'; 
+import WhyChooseUs from '@/components/WhyChooseUs'; 
 import { Briefcase, BarChart, FileText, Settings } from 'lucide-react';
 
 const MSMELoanHeroGraphic = () => {
@@ -27,13 +27,16 @@ const MSMELoan = () => {
 
     const infoData = {
         imageSrc: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-        subtitle: "Growth Engine",
-        title: "MSME LOAN",
-        intro: "Fueling the backbone of the economy.",
-        description: "Our MSME loans provide the capital you need for equipment purchase, working capital, or business expansion. We offer competitive rates and flexible collateral options.",
+        subtitle: "Growth & Stability",
+        title: "MSME LOAN (Secured & Unsecured)",
+        intro: "Fueling the backbone of the economy with tailored solutions.",
+        description: "We understand every business is different. That's why we offer two distinct MSME loan products to suit your needs: Unsecured Loans for quick, small-ticket needs (1-5 Lakh) and Secured Loans for larger capital requirements (3-50 Lakh) with longer tenures.",
         faqs: [
-            { question: "What is the maximum loan amount?", answer: "Depends on your turnover and collateral." },
-            { question: "Is collateral required?", answer: "We offer both secured and unsecured options." },
+            { question: "What are the loan options available?", answer: "We offer two types of MSME loans: 1. Unsecured MSME Loan: ₹1 Lakh to ₹5 Lakh for 1 to 3 years. 2. Secured MSME Loan: ₹3 Lakh to ₹50 Lakh for 2 to 7 years." },
+            { question: "What is MSME Secured Loan?", answer: "An MSME Secured Loan is a loan backed by collateral (property or asset). It allows you to avail higher loan amounts (₹3 Lakh to ₹50 Lakh) with longer repayment tenures (up to 7 years) and generally lower interest rates." },
+            { question: "What is MSME Unsecured Loan?", answer: "An MSME Unsecured Loan is a loan that does not require any collateral. It is ideal for small, quick funding needs (₹1 Lakh to ₹5 Lakh) with a tenure of up to 3 years, offering faster processing." },
+            { question: "What is the CIBIL score requirement?", answer: "A minimum CIBIL score of 620 is required for both secured and unsecured loans (Conditions Apply)." },
+            { question: "Is collateral required?", answer: "For Secured Loans (3-50 Lakh), collateral is required. For Unsecured Loans (1-5 Lakh), no collateral is generally needed." },
         ]
     };
 

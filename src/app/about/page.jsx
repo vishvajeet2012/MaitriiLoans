@@ -1,5 +1,7 @@
+import YourNextFinanclegoal from "@/components/Landing/YourNextFinanclegoal";
 import MaitriiABout from "./aboutHero";
 import TeamCarouselSection from "./direactor";
+import TeamSection from "./team";
 import MissionVision from "./missionVisssion";
 
 export default function AboutPage() {
@@ -7,7 +9,9 @@ export default function AboutPage() {
         <div>
             <MaitriiABout />
             <MissionVision />
+              <YourNextFinanclegoal/>
             <TeamCarouselSection />
+            <TeamSection />
         </div>
     );
 }

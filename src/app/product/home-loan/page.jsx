@@ -3,7 +3,7 @@
 import React from 'react';
 import ProductPageTemplate from '@/components/ProductPageTemplate';
 import HomeLoanHeroGraphic from './HomeLoanHeroGraphic';
-import WhyChooseUs from '../business-loan/whyChooseus'; // Reusing or creating new if needed
+import WhyChooseUs from '@/components/WhyChooseUs'; // Reusing or creating new if needed
 import { Home, Banknote, Briefcase, UserCheck } from 'lucide-react';
 
 const HomeLoan = () => {

@@ -52,8 +52,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><a href="/product/mortgage" className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity">Mortgage Loan</a></li>
               <li><a href="/product/vehicle-loan" className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity">Vehicle Loan</a></li>
-              <li><a href="/product/personal-loan" className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity">Personal Loan</a></li>
-              <li><a href="/product/business-loan" className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity">Business Loan</a></li>
+              <li><a href="/product/personal-loan" className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity">Business & Personal Loan</a></li>
             </ul>
           </div>
 

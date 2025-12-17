@@ -20,7 +20,7 @@ const MaitriiAbout = () => {
                         About Maitrii
                     </h2>
                     <p className="text-lg text-[#6D3078] leading-relaxed font-medium">
-                        Explore our journey, values, and commitment to Maitrii finance. We are dedicated to empowering your financial growth with trust and transparency.
+                    While "MAITRII" primarily means friendship, goodwill, and kindness in Sanskrit, it can also be associated with the idea of prosperity and support, which indirectly connects to financial well-being and the role of money in enabling positive relationships and opportunities. In the context of MAITRII Loans, the name can symbolize not just emotional support but also the practical empowerment that comes with access to money, making it a meaningful choice for an NBFC that aims to uplift customers through both financial and personal support.
                     </p>
                     {/* <div className="mt-4 flex gap-4">
                         <div className="flex flex-col">
