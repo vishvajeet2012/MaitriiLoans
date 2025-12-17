@@ -140,10 +140,16 @@ const EMICalculatorPage = () => {
                                 <label className="text-lg font-semibold text-[#6D3078] flex items-center gap-2">
                                     <IndianRupee size={20} className="text-[#F47E4D]" /> Loan Amount
                                 </label>
-                                <div className="bg-[#F3E8FF] px-4 py-2 rounded-lg text-[#6D3078] font-bold min-w-[140px] text-right">
-                                    ₹ {loanAmount.toLocaleString('en-IN')}
+                                    <div className="flex items-center bg-[#F3E8FF] px-3 py-1.5 rounded-lg text-[#6D3078] font-bold w-[120px]">
+                                        <span className="mr-1 text-sm">₹</span>
+                                        <input
+                                            type="number"
+                                            value={loanAmount}
+                                            onChange={(e) => setLoanAmount(Number(e.target.value))}
+                                            className="bg-transparent w-full text-right outline-none appearance-none text-base"
+                                        />
+                                    </div>
                                 </div>
-                            </div>
                             <input
                                 type="range"
                                 min="10000"
@@ -165,10 +171,17 @@ const EMICalculatorPage = () => {
                                 <label className="text-lg font-semibold text-[#6D3078] flex items-center gap-2">
                                     <Percent size={20} className="text-[#F47E4D]" /> Interest Rate (p.a)
                                 </label>
-                                <div className="bg-[#F3E8FF] px-4 py-2 rounded-lg text-[#6D3078] font-bold min-w-[100px] text-right">
-                                    {interestRate} %
+                                    <div className="flex items-center bg-[#F3E8FF] px-3 py-1.5 rounded-lg text-[#6D3078] font-bold w-[90px]">
+                                        <input
+                                            type="number"
+                                            value={interestRate}
+                                            onChange={(e) => setInterestRate(Number(e.target.value))}
+                                            className="bg-transparent w-full text-right outline-none appearance-none text-base"
+                                            step="0.1"
+                                        />
+                                        <span className="ml-1 text-sm">%</span>
+                                    </div>
                                 </div>
-                            </div>
                             <input
                                 type="range"
                                 min="1"
@@ -205,9 +218,12 @@ const EMICalculatorPage = () => {
                                             Mo
                                         </button>
                                     </div>
-                                    <div className="bg-[#F3E8FF] px-4 py-2 rounded-lg text-[#6D3078] font-bold min-w-[80px] text-right">
-                                        {loanTenure}
-                                    </div>
+                                    <input
+                                        type="number"
+                                        value={loanTenure}
+                                        onChange={(e) => setLoanTenure(Number(e.target.value))}
+                                        className="bg-[#F3E8FF] px-3 py-1.5 rounded-lg text-[#6D3078] font-bold w-[70px] text-center outline-none text-base"
+                                    />
                                 </div>
                             </div>
                             <input
