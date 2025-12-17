@@ -7,17 +7,22 @@ import Session from "@/models/Session";
 
 // Helper to verify superadmin
 async function verifySuperadmin() {
-  const cookieStore = cookies();
-  const sessionToken = cookieStore.get('session_token')?.value;
-  if (!sessionToken) return null;
+  try {
+    const cookieStore = await cookies();
+    const sessionToken = cookieStore.get('session_token')?.value;
+    if (!sessionToken) return null;
 
-  const session = await Session.findOne({ token: sessionToken, expiresAt: { $gt: new Date() } });
-  if (!session) return null;
+    const session = await Session.findOne({ token: sessionToken, expiresAt: { $gt: new Date() } });
+    if (!session) return null;
 
-  const user = await User.findById(session.userId);
-  if (!user || user.role !== 'superadmin') return null;
+    const user = await User.findById(session.userId);
+    if (!user || user.role !== 'superadmin') return null;
 
-  return user;
+    return user;
+  } catch (error) {
+    console.error("verifySuperadmin error:", error);
+    return null;
+  }
 }
 
 // GET - Fetch current policy settings (for admin view)
