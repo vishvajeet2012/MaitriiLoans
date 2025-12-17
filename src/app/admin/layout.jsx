@@ -25,8 +25,8 @@ const AdminLayout = ({ children }) => {
 
         const subscribeUser = async (registration) => {
             try {
-                // Get VAPID Key
-                const vapidKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
+                // Get VAPID Key (Hardcoded for reliability)
+                const vapidKey = 'BKZrpfCrFZ97WtBVPE6cCI4qrZPccmqh2T79nTok6XxM-UPXaKgyiNhXEseUMr-YDdqRjVbaeN2kDRDWMoihFxc';
                 if (!vapidKey) return;
 
                 const convertedVapidKey = urlBase64ToUint8Array(vapidKey);
