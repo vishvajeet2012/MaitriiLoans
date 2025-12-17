@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
+    name: {
+      type: String,
+      required: [true, "Please provide a name"],
+    },
     username: {
       type: String,
       required: [true, "Please provide a username"],
@@ -32,9 +36,28 @@ const userSchema = new mongoose.Schema(
       email: { type: Boolean, default: true },
       realTime: { type: Boolean, default: true },
     },
+    profilePicture: {
+      type: String,
+    },
+    position: {
+      type: String,
+    },
+    department: {
+      type: String,
+    },
     isActive: {
       type: Boolean,
       default: true,
+    },
+    otp: {
+      type: String,
+    },
+    otpExpiry: {
+      type: Date,
+    },
+    isVerified: {
+      type: Boolean,
+      default: false,
     },
   },
   { timestamps: true }

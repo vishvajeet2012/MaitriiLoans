@@ -7,12 +7,34 @@ import { Briefcase, BarChart, FileText, Settings } from 'lucide-react';
 
 const MSMELoanHeroGraphic = () => {
     return (
-        <svg viewBox="0 0 600 500" className="w-full h-full drop-shadow-md" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="300" cy="250" r="180" fill="#F3E8FF" />
-            <g transform="translate(180, 150)">
-                 <rect x="0" y="40" width="80" height="120" fill="white" stroke="#6D3078" strokeWidth="2" />
-                 <rect x="90" y="0" width="120" height="160" fill="white" stroke="#F47E4D" strokeWidth="2" />
-                 <rect x="220" y="60" width="60" height="100" fill="white" stroke="#6D3078" strokeWidth="2" />
+        <svg viewBox="0 0 600 500" className="w-full h-full drop-shadow-xl" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="300" cy="250" r="200" fill="#F3E8FF" />
+            
+            {/* Factory/Business Silhouette */}
+            <path d="M180 320V220L230 190L280 220V320H180Z" fill="white" stroke="#6D3078" strokeWidth="3" />
+            <path d="M280 320V240L330 210L380 240V320H280Z" fill="white" stroke="#6D3078" strokeWidth="3" />
+            <path d="M380 320V260L420 230V320H380Z" fill="white" stroke="#6D3078" strokeWidth="3" />
+            
+            {/* Windows */}
+            <rect x="210" y="240" width="40" height="40" rx="4" fill="#6D3078" opacity="0.1" />
+            <rect x="310" y="260" width="40" height="40" rx="4" fill="#6D3078" opacity="0.1" />
+            
+            {/* Rising Graph Arrow */}
+            <path d="M150 350L250 300L320 280L450 150" stroke="#F47E4D" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M450 150L410 160V150H450V190L450 150Z" fill="#F47E4D" /> {/* Arrow Head */}
+
+            {/* Coins / Finance Elements */}
+            <circle cx="450" cy="150" r="10" fill="#F47E4D" />
+            <circle cx="160" cy="180" r="25" fill="#FFFFFF" stroke="#F47E4D" strokeWidth="3" />
+            <text x="160" y="188" fontSize="24" textAnchor="middle" fill="#F47E4D" fontWeight="bold">₹</text>
+
+            <circle cx="120" cy="240" r="15" fill="#FFFFFF" stroke="#6D3078" strokeWidth="2" />
+            <text x="120" y="246" fontSize="14" textAnchor="middle" fill="#6D3078" fontWeight="bold">%</text>
+
+            {/* Gear/Settings Icon for Industry */}
+            <g transform="translate(420, 320)">
+                <circle cx="20" cy="20" r="15" stroke="#6D3078" strokeWidth="3" strokeDasharray="4 4" />
+                <circle cx="20" cy="20" r="6" fill="#F47E4D" />
             </g>
         </svg>
     )

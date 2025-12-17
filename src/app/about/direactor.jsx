@@ -4,9 +4,8 @@ import React from "react";
 import Image from "next/image";
 import director1 from "../../../public/Director1.jpg";
 import director2 from "../../../public/Director2.jpg";
-
+import director3 from "../../../public/team/kanishksir.jpeg";
 // Using director1 as placeholder for the 3rd person if no specific image exists
-const director3 = director1; 
 
 const directors = [
     {
@@ -20,8 +19,8 @@ const directors = [
         image: director2,
     },
     {
-        name: "Join Our Leadership",
-        description: "We are always looking for visionary leaders to join our team and help us achieve our goal of financial inclusion for every Indian family. If you share our passion and values, we invite you to be a part of our journey.",
+        name: "Kanishk Goyal",
+        description: "",
         image: director3, // Placeholder
     },
 ];

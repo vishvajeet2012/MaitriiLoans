@@ -2,35 +2,36 @@
 
 import React from "react";
 import Image from "next/image";
-import director1 from "../../../public/Director1.jpg"; // Reusing image as placeholder
-
+import manish from "../../../public/team/mainshsir.jpeg"; // Reusing image as placeholder
+import vijendra from "../../../public/team/vijaendra sir.jpeg";
+import msJyoti from "../../../public/team/joyti.jpeg";
+import utkarsh from "../../../public/team/utkarsh.jpeg"
 // Placeholder for Team Members
-const teamMemberImage = director1; 
 
 const teamMembers = [
     {
-        name: "Team Member 1",
+        name: "Mr. Manish Jain",
         role: "Senior Manager",
         description: "Dedicated professional with over 10 years of experience in financial operations and team leadership. Committed to driving growth and excellence in every project.",
-        image: teamMemberImage,
+        image: manish,
     },
     {
-        name: "Team Member 2",
+        name: "Mr. Vijendra Sharma",
         role: "Regional Head",
         description: "Expert in regional market dynamics and customer relationship management. Successfully expanded the branch network across multiple districts.",
         image: teamMemberImage,
     },
     {
-        name: "Team Member 3",
+        name: "Ms. Jyoti",
         role: "Operations Lead",
         description: "Handles day-to-day operational challenges with a strategic mindset. Ensures smooth processing of loans and maintains high compliance standards.",
-        image: teamMemberImage,
+        image: msJyoti,
     },
     {
         name: "Team Member 4",
         role: "Credit Analyst",
         description: "Specializes in risk assessment and credit evaluation. Plays a vital role in maintaining the health of our loan portfolio through rigorous analysis.",
-        image: teamMemberImage,
+        image: "",
     },
 ];
 

@@ -3,32 +3,56 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Send, User, MessageSquare, Briefcase, UploadCloud } from 'lucide-react';
+  import axios from 'axios';
+    import { State, City }  from 'country-state-city';
 
 const ContactUs = () => {
+    // Form State
+  
+
     // Form State
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
-        location: '',
+        state: '',
+        city: '',
+        pincode: '',
         loanType: '',
-        message: '',
-        kyc1: null,
-        kyc2: null
+        message: ''
     });
+    const [submitting, setSubmitting] = useState(false);
+    
+    // Derived state for dropdowns
+    const states = State.getStatesOfCountry('IN');
+    const [cities, setCities] = useState([]);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleFileChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.files[0] });
+    const handleStateChange = (e) => {
+        const stateCode = e.target.value;
+        const stateName = e.target.options[e.target.selectedIndex].text;
+        setFormData({ ...formData, state: stateName, city: '' });
+        setCities(City.getCitiesOfState('IN', stateCode));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form Submitted", formData);
-        alert("Thank you! We will contact you soon.");
+        setSubmitting(true);
+        try {
+            await axios.post('/api/contact', formData);
+            alert("Thank you! We have received your inquiry and will contact you soon.");
+            setFormData({
+                name: '', email: '', phone: '', state: '', city: '', pincode: '', loanType: '', message: ''
+            });
+        } catch (error) {
+            console.error(error);
+            alert("Something went wrong. Please try again.");
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     return (
@@ -36,51 +60,29 @@ const ContactUs = () => {
             
             {/* --- Hero Section (White BG + Black/Theme SVGs + Backdrop Blur) --- */}
             <div className="relative w-full h-[500px] overflow-hidden bg-white"> 
-                
-                {/* Layer 1: Background Patterns & SVGs (Dark colors for White BG) */}
+                {/* ... (Hero Content same as before) ... */}
                 <div className="absolute inset-0 w-full h-full">
                     <svg viewBox="0 0 1440 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-cover opacity-80">
-                        
-                        {/* 1. Micro Dot Pattern (Black dots on white) */}
-                        <defs>
+                         {/* ... (SVG Pattern same as before) ... */}
+                         <defs>
                             <pattern id="dotPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
                                 <circle cx="2" cy="2" r="1.5" fill="#000000" opacity="0.05"/>
                             </pattern>
                         </defs>
                         <rect x="0" y="0" width="1440" height="500" fill="url(#dotPattern)" />
-
-                        {/* 2. Scattered Circles (Theme Colors & Black) */}
                         <circle cx="50" cy="100" r="30" fill="#F47E4D" opacity="0.1" />
                         <circle cx="150" cy="400" r="50" fill="#6D3078" opacity="0.05" />
                         <circle cx="800" cy="50" r="20" fill="#000000" opacity="0.05" />
                         <circle cx="1300" cy="200" r="80" fill="#6D3078" opacity="0.05" />
                         <circle cx="1100" cy="450" r="40" fill="#F47E4D" opacity="0.1" />
-                        
-                        {/* 3. Rings / Outlined Circles (Theme & Black Strokes) */}
                         <circle cx="300" cy="200" r="40" stroke="#000000" strokeWidth="1" opacity="0.1" />
                         <circle cx="600" cy="350" r="60" stroke="#F47E4D" strokeWidth="2" strokeDasharray="8 8" opacity="0.2" />
                         <circle cx="1200" cy="100" r="25" stroke="#6D3078" strokeWidth="2" opacity="0.1" />
-
-                        {/* 4. Crosses (Black & Theme X Shapes) */}
-                        <g transform="translate(400, 100) rotate(45)">
-                            <rect x="-10" y="-2" width="20" height="4" fill="#000000" opacity="0.1" />
-                            <rect x="-2" y="-10" width="4" height="20" fill="#000000" opacity="0.1" />
-                        </g>
-                        <g transform="translate(900, 400) rotate(15)">
-                            <rect x="-15" y="-3" width="30" height="6" fill="#6D3078" opacity="0.1" />
-                            <rect x="-3" y="-15" width="6" height="30" fill="#6D3078" opacity="0.1" />
-                        </g>
-
-                        {/* 5. Wavy Lines / Paths */}
                         <path d="M0 300 Q 200 200 400 300 T 800 300" stroke="#6D3078" strokeWidth="2" fill="none" opacity="0.1" />
                         <path d="M1000 150 Q 1200 250 1440 150" stroke="#F47E4D" strokeWidth="2" fill="none" opacity="0.2" />
-                        
-                        {/* 6. Abstract Squares */}
-                        <rect x="200" y="50" width="40" height="40" rx="8" stroke="#000000" strokeWidth="1" fill="none" opacity="0.1" transform="rotate(20 220 70)" />
-                        <rect x="1000" y="300" width="50" height="50" rx="10" stroke="#6D3078" strokeWidth="2" opacity="0.1" transform="rotate(-10 1025 325)" />
                     </svg>
                 </div>
-
+                
                 {/* Layer 2: White Fade Gradient (Bottom to Top) for smooth transition */}
                 <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#F8FAFC] to-transparent z-0 pointer-events-none"></div>
 
@@ -123,10 +125,6 @@ const ContactUs = () => {
                             </h2>
                             
                             <div className="space-y-8">
-                                {/* Registered Office */}
-                             
-
-                                {/* Corporate Office */}
                                 <div className="flex items-start gap-4 group">
                                     <div className="p-3 bg-[#F3E8FF] rounded-xl text-[#6D3078] group-hover:bg-[#6D3078] group-hover:text-white transition-colors duration-300">
                                         <MapPin size={24} />
@@ -138,8 +136,6 @@ const ContactUs = () => {
                                         </p>
                                     </div>
                                 </div>
-
-                                {/* Phone */}
                                 <div className="flex items-start gap-4 group">
                                     <div className="p-3 bg-[#F3E8FF] rounded-xl text-[#6D3078] group-hover:bg-[#6D3078] group-hover:text-white transition-colors duration-300">
                                         <Phone size={24} />
@@ -149,8 +145,6 @@ const ContactUs = () => {
                                         <p className="text-slate-500 text-sm mt-1">+91 8946 800600</p>
                                     </div>
                                 </div>
-
-                                {/* Email */}
                                 <div className="flex items-start gap-4 group">
                                     <div className="p-3 bg-[#F3E8FF] rounded-xl text-[#6D3078] group-hover:bg-[#6D3078] group-hover:text-white transition-colors duration-300">
                                         <Mail size={24} />
@@ -199,10 +193,34 @@ const ContactUs = () => {
                                         <input type="email" name="email" placeholder="Email Address" value={formData.email} onChange={handleChange} className="w-full pl-12 pr-4 py-3 bg-[#F8FAFC] border border-slate-200 rounded-xl focus:border-[#F47E4D] focus:ring-1 focus:ring-[#F47E4D] transition-all outline-none" />
                                     </div>
 
-                                    {/* Location (New Field) */}
+                                    {/* State Selector */}
                                     <div className="relative group">
                                         <MapPin className="absolute left-4 top-3.5 text-slate-400 w-5 h-5" />
-                                        <input type="text" name="location" placeholder="Enter your Location" value={formData.location} onChange={handleChange} className="w-full pl-12 pr-4 py-3 bg-[#F8FAFC] border border-slate-200 rounded-xl focus:border-[#F47E4D] focus:ring-1 focus:ring-[#F47E4D] transition-all outline-none" required />
+                                        <select onChange={handleStateChange} className="w-full pl-12 pr-4 py-3 bg-[#F8FAFC] border border-slate-200 rounded-xl focus:border-[#F47E4D] focus:ring-1 focus:ring-[#F47E4D] transition-all outline-none appearance-none cursor-pointer" required>
+                                            <option value="">Select State</option>
+                                            {states.map((state) => (
+                                                <option key={state.isoCode} value={state.isoCode}>{state.name}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    {/* City Selector */}
+                                    <div className="relative group">
+                                        <MapPin className="absolute left-4 top-3.5 text-slate-400 w-5 h-5" />
+                                        <select name="city" value={formData.city} onChange={handleChange} className="w-full pl-12 pr-4 py-3 bg-[#F8FAFC] border border-slate-200 rounded-xl focus:border-[#F47E4D] focus:ring-1 focus:ring-[#F47E4D] transition-all outline-none appearance-none cursor-pointer" required disabled={!cities.length}>
+                                            <option value="">Select City</option>
+                                            {cities.map((city) => (
+                                                <option key={city.name} value={city.name}>{city.name}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+
+                                    {/* Pincode */}
+                                    <div className="relative group">
+                                        <MapPin className="absolute left-4 top-3.5 text-slate-400 w-5 h-5" />
+                                        <input type="text" name="pincode" placeholder="Pincode" value={formData.pincode} onChange={handleChange} maxLength="6" className="w-full pl-12 pr-4 py-3 bg-[#F8FAFC] border border-slate-200 rounded-xl focus:border-[#F47E4D] focus:ring-1 focus:ring-[#F47E4D] transition-all outline-none" required />
                                     </div>
                                 </div>
 
@@ -221,35 +239,16 @@ const ContactUs = () => {
                                     </div>
                                 </div>
 
-                                {/* File Uploads (New Fields) */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div className="relative group">
-                                        <label className="block text-sm font-medium text-slate-600 mb-1 ml-1">Upload KYC Document 1</label>
-                                        <div className="relative">
-                                            <UploadCloud className="absolute left-4 top-3.5 text-slate-400 w-5 h-5" />
-                                            <input type="file" name="kyc1" onChange={handleFileChange} className="w-full pl-12 pr-4 py-2.5 bg-[#F8FAFC] border border-slate-200 rounded-xl focus:border-[#F47E4D] focus:ring-1 focus:ring-[#F47E4D] transition-all outline-none text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-[#F47E4D]/10 file:text-[#F47E4D] hover:file:bg-[#F47E4D]/20" />
-                                        </div>
-                                    </div>
-                                    <div className="relative group">
-                                        <label className="block text-sm font-medium text-slate-600 mb-1 ml-1">Upload KYC Document 2</label>
-                                        <div className="relative">
-                                            <UploadCloud className="absolute left-4 top-3.5 text-slate-400 w-5 h-5" />
-                                            <input type="file" name="kyc2" onChange={handleFileChange} className="w-full pl-12 pr-4 py-2.5 bg-[#F8FAFC] border border-slate-200 rounded-xl focus:border-[#F47E4D] focus:ring-1 focus:ring-[#F47E4D] transition-all outline-none text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-[#F47E4D]/10 file:text-[#F47E4D] hover:file:bg-[#F47E4D]/20" />
-                                        </div>
-                                    </div>
-                                </div>
-
                                 {/* Message */}
                                 <div className="relative group">
                                     <MessageSquare className="absolute left-4 top-3.5 text-slate-400 w-5 h-5" />
                                     <textarea name="message" rows="4" placeholder="Enter your message" value={formData.message} onChange={handleChange} className="w-full pl-12 pr-4 py-3 bg-[#F8FAFC] border border-slate-200 rounded-xl focus:border-[#F47E4D] focus:ring-1 focus:ring-[#F47E4D] transition-all outline-none resize-none"></textarea>
                                 </div>
 
-                                <button type="submit" className="w-full bg-[#6D3078] hover:bg-[#5a2565] text-white font-bold py-4 rounded-xl shadow-lg shadow-purple-900/20 transition-all transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2">
-                                    <span>Submit</span>
+                                <button type="submit" disabled={submitting} className="w-full bg-[#6D3078] hover:bg-[#5a2565] text-white font-bold py-4 rounded-xl shadow-lg shadow-purple-900/20 transition-all transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+                                    <span>{submitting ? 'Submitting...' : 'Submit'}</span>
                                     <Send size={18} />
                                 </button>
-
                             </form>
                         </div>
                     </motion.div>
