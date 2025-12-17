@@ -9,7 +9,8 @@ import {
   MessageSquare, 
   FileText, 
   Briefcase, 
-  LogOut 
+  LogOut,
+  Bell 
 } from 'lucide-react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
@@ -66,6 +67,12 @@ const Sidebar = ({ user, username }) => {
       icon: Briefcase, 
       href: `/admin/dashboard/${username}?tab=grievance`,
       show: user?.permissions?.includes('grievance') || user?.role === 'superadmin' 
+    },
+    { 
+      label: 'Policy Update', 
+      icon: Bell, 
+      href: `/admin/dashboard/${username}?tab=policy`,
+      show: user?.role === 'superadmin' 
     }
   ];
 

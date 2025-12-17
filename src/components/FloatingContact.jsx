@@ -1,16 +1,73 @@
 'use client';
 
-import React from 'react';
-import { Phone } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { Phone, Bell } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import axios from 'axios';
 
 const FloatingContact = () => {
     const whatsappNumber = "0987654321"; 
     const contactNumber = "0987654321"; 
 
+    const [policyUpdate, setPolicyUpdate] = useState(null);
+
+    useEffect(() => {
+        const fetchPolicy = async () => {
+            try {
+                const { data } = await axios.get('/api/policy-update');
+                if (data.policy) {
+                    setPolicyUpdate(data.policy);
+                }
+            } catch (error) {
+                console.error("Policy fetch error:", error);
+            }
+        };
+        fetchPolicy();
+    }, []);
+
+    const handlePolicyClick = () => {
+        if (!policyUpdate) return;
+        
+        if (policyUpdate.type === 'pdf') {
+            // Download PDF
+            const link = document.createElement('a');
+            link.href = policyUpdate.url;
+            link.download = policyUpdate.title || 'policy.pdf';
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } else {
+            // Open link in new tab
+            window.open(policyUpdate.url, '_blank');
+        }
+    };
+
     return (
         <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
-         
+            
+            {/* Policy Update Notification Bell */}
+            <AnimatePresence>
+                {policyUpdate && (
+                    <motion.button
+                        initial={{ opacity: 0, scale: 0, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0, y: 20 }}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        onClick={handlePolicyClick}
+                        className="w-14 h-14 bg-[#F47E4D] text-white rounded-full shadow-lg flex items-center justify-center relative"
+                        title={policyUpdate.title}
+                    >
+                        <Bell className="w-6 h-6" />
+                        {/* Pulse indicator */}
+                        <span className="absolute top-1 right-1 w-3 h-3 bg-white rounded-full animate-ping"></span>
+                        <span className="absolute top-1 right-1 w-3 h-3 bg-white rounded-full"></span>
+                    </motion.button>
+                )}
+            </AnimatePresence>
+
+            {/* Phone */}
             <motion.a
                 href={`tel:${contactNumber}`}
                 whileHover={{ scale: 1.1 }}
@@ -21,7 +78,7 @@ const FloatingContact = () => {
                 <Phone className="w-6 h-6" />
             </motion.a>
 
-          
+            {/* WhatsApp */}
             <motion.a
                 href={`https://wa.me/${whatsappNumber}`}
                 target="_blank"
@@ -44,3 +101,4 @@ const FloatingContact = () => {
 };
 
 export default FloatingContact;
+

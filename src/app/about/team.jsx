@@ -9,30 +9,31 @@ import utkarsh from "../../../public/team/utkarsh.jpeg"
 // Placeholder for Team Members
 
 const teamMembers = [
-    {
-        name: "Mr. Manish Jain",
-        role: "Senior Manager",
-        description: "Dedicated professional with over 10 years of experience in financial operations and team leadership. Committed to driving growth and excellence in every project.",
-        image: manish,
-    },
-    {
-        name: "Mr. Vijendra Sharma",
-        role: "Regional Head",
-        description: "Expert in regional market dynamics and customer relationship management. Successfully expanded the branch network across multiple districts.",
-        image: vijendra,
-    },
-    {
-        name: "Ms. Jyoti",
-        role: "Operations Lead",
-        description: "Handles day-to-day operational challenges with a strategic mindset. Ensures smooth processing of loans and maintains high compliance standards.",
-        image: msJyoti,
-    },
-    {
-        name: "Team Member 4",
-        role: "Credit Analyst",
-        description: "Specializes in risk assessment and credit evaluation. Plays a vital role in maintaining the health of our loan portfolio through rigorous analysis.",
-        image: msJyoti,
-    },
+   {
+    name: " Mr.Utkarsh Goyal",
+   role: "Chief Executive Officer",
+    description: "Specializes in risk assessment and credit evaluation. Plays a vital role in maintaining the health of our loan portfolio through rigorous analysis.",
+    image: utkarsh,
+},
+{
+    name: "Mr. Vijendra Sharma",
+    role: "VP – Business Development",
+    description: "Expert in regional market dynamics and customer relationship management. Successfully expanded the branch network across multiple districts.",
+    image: vijendra,
+},
+{
+    name: "Mr. Manish Jain",
+    role: "Chief Operating Officer",
+    description: "Dedicated professional with over 10 years of experience in financial operations and team leadership. Committed to driving growth and excellence in every project.",
+    image: manish,
+},
+{
+    name: "Ms.Jyoti Sharma",
+    role: "Head of Operations ",
+    description: "Handles day-to-day operational challenges with a strategic mindset. Ensures smooth processing of loans and maintains high compliance standards.",
+    image: msJyoti,
+},
+  
 ];
 
 const TeamCard = ({ name, role, description, image }) => {

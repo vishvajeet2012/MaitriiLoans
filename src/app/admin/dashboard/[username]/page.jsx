@@ -7,6 +7,7 @@ import DashboardLayout from '@/components/Admin/DashboardLayout';
 import ContactManager from '@/components/Admin/Modules/ContactManager';
 import GrievanceManager from '@/components/Admin/Modules/GrievanceManager';
 import UserManager from '@/components/Admin/Modules/UserManager';
+import PolicyManager from '@/components/Admin/Modules/PolicyManager';
 import { Activity, Users, Clock, AlertCircle } from 'lucide-react';
 import Loading from '@/components/Admin/Loading';
 
@@ -103,6 +104,10 @@ const DashboardPage = () => {
             break;
         case 'users':
              content = <UserManager currentUser={user} />; 
+            break;
+        case 'policy':
+            // Only superadmin can access
+            content = user.role === 'superadmin' ? <PolicyManager /> : <DashboardHome user={user} />;
             break;
         default:
             content = <DashboardHome user={user} />;
