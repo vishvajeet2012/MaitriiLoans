@@ -108,3 +108,21 @@ export async function POST(req) {
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
+
+// DELETE - Delete policy
+export async function DELETE() {
+  try {
+    await connectToDatabase();
+    const user = await verifySuperadmin();
+    if (!user) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    await PolicyUpdate.deleteMany({});
+    return NextResponse.json({ message: "Policy deleted successfully" }, { status: 200 });
+  } catch (error) {
+    console.error("Admin Policy Delete Error:", error);
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+  }
+}
+
