@@ -140,7 +140,7 @@ const OurProduct = () => {
 
                 <a href={service.link} className="w-full sm:w-auto">
                     <button className="px-8 py-2 rounded-full bg-white/20 hover:bg-white/30 text-white font-medium text-sm transition-all duration-300 backdrop-blur-sm border border-white/10 cursor-pointer">
-                        Apply
+                    Learn More
                     </button>
                 </a>
               </div>
