@@ -233,6 +233,7 @@ const ContactUs = () => {
                                         <option value="Business Loan">Business Loan</option>
                                         <option value="Vehicle Loan">Vehicle Loan</option>
                                         <option value="Mortgage Loan">Mortgage Loan</option>
+                                        <option value="MSME">MSME</option>
                                     </select>
                                     <div className="absolute right-4 top-4 pointer-events-none">
                                         <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -263,7 +264,7 @@ const ContactUs = () => {
                     viewport={{ once: true }}
                 >
                     <iframe 
-                        src="https://maps.google.com/maps?q=11%2F70%20Madhyam%20Marg%2C%20Mansarovar%2C%20Jaipur&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14234.629856586022!2d75.7530104!3d26.8778562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db535cf08eae3%3A0xe6b8a4ff5e9e42b7!2sMentor%20Finmart%20Pvt.%20Ltd.%20(MAITRII%20LOANS)!5e0!3m2!1sen!2sin"
                         width="100%" 
                         height="100%" 
                         style={{ border: 0 }} 
@@ -272,7 +273,7 @@ const ContactUs = () => {
                         className="grayscale hover:grayscale-0 transition-all duration-700"
                     ></iframe>
                     <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm text-xs font-bold text-[#6D3078] pointer-events-none">
-                        11/70 Madhyam Marg, Mansarovar
+                        Mentor Finmart Pvt. Ltd. (Maitrii Loans)
                     </div>
                 </motion.div>
 

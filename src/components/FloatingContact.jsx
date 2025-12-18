@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const FloatingContact = () => {
     const contactNumber = "+918946800600"; 
-    const locationUrl = "https://maps.app.goo.gl/LPHV9a1DSSmsqTfz6"; // Update with actual location 
+    const locationUrl = "https://www.google.com/maps/place/Mentor+Finmart+Pvt.+Ltd.+(MAITRII+LOANS)/@26.877861,75.7504355,17z/data=!4m16!1m9!3m8!1s0x396db535cf08eae3:0xe6b8a4ff5e9e42b7!2sMentor+Finmart+Pvt.+Ltd.+(MAITRII+LOANS)!8m2!3d26.8778562!4d75.7530104!9m1!1b1!16s%2Fg%2F11h3ldm3nk"; 
 
     const [policyUpdate, setPolicyUpdate] = useState(null);
 

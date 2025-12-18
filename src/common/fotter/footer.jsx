@@ -50,9 +50,11 @@ const Footer = () => {
               Products
             </h3>
             <ul className="space-y-3">
+              <li><a href="/product/home-loan" className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity">Home Loan</a></li>
               <li><a href="/product/mortgage" className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity">Mortgage Loan</a></li>
               <li><a href="/product/vehicle-loan" className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity">Vehicle Loan</a></li>
               <li><a href="/product/personal-loan" className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity">Business & Personal Loan</a></li>
+              <li><a href="/product/msme" className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity">MSME</a></li>
             </ul>
           </div>
 
@@ -64,16 +66,6 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="https://www.digitalindia.gov.in/initiative/national-automated-clearing-house-nach/#:~:text=National%20Automated%20Clearing%20House%20(NACH)%20is%20a%20centralised%20system%20launched,and%20removing%20local%20barriers%2Finhibitors."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity"
-                >
-                  NACH/ECS
-                </a>
-              </li>
-              <li>
-                <a
                   href="/fairpractices"
                   className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity"
                 >
@@ -83,24 +75,45 @@ const Footer = () => {
                <li>
                 <a
                   href="/grievances-redressal"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity"
                 >
-Grievances Redressal
+                  Grievances Redressal
                 </a>
               </li>
               <li>
                 <a
-                  href="https://www.rbi.org.in/"
+                  href="/charges"
+                  className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity"
+                >
+                  Interest Rate Policy
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/privacy-policy"
+                  className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/terms-conditions"
+                  className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity"
+                >
+                  Terms & Conditions
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://sachet.rbi.org.in"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity"
                 >
-                  Reserve Bank of India
+                  RBI Sachet Portal
                 </a>
               </li>
-                
             </ul>
           </div>
 
