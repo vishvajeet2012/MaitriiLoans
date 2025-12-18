@@ -79,26 +79,28 @@ export default function YourNextFinanclegoal() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
                     
                     <CounterItem 
-                        end={1500}
-                        label="98% Customer Satisfaction Rate" 
+                        end={5000}
+                        label="Customers Empowered" 
                         icon={Users} 
                         color="from-orange-500 to-red-500"
+                    />
+                     <CounterItem 
+                        end={98} 
+                        suffix="%"
+                        label="Customer Satisfaction Rate" 
+                        icon={Briefcase} 
+                        color="from-blue-400 to-indigo-500"
                     />
 
                     <CounterItem 
                         end={12}
                         suffix="Cr+"
-                        label="Loans Disbursed" 
+                        label="Yearly Loans Disbursed" 
                         icon={IndianRupee} 
                         color="from-purple-500 to-pink-500"
                     />
 
-                    <CounterItem 
-                        end={7} 
-                        label="Products Offered" 
-                        icon={Briefcase} 
-                        color="from-blue-400 to-indigo-500"
-                    />
+                   
 
                 </div>
             </div>
