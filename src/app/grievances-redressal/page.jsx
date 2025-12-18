@@ -257,7 +257,19 @@ Jaipur - 302020</span>
                   <div className="absolute left-0 top-4 w-3 h-3 bg-slate-700 rounded-full ring-4 ring-slate-50"></div>
                   <div className="bg-white p-5 rounded-xl shadow-sm border-2 border-slate-100">
                     <div className="flex justify-between items-start mb-3">
+                      <div>
+                        <h3 className="font-bold text-sm text-[#F47E4D]">
+                         
+                        </h3>
+                        <p className="text-xs text-slate-700 font-bold mt-1">
                     
+                        </p>
+                        <p className="text-[10px] text-slate-500 leading-tight">
+                      
+                          <br />
+                  
+                        </p>
+                      </div>
                       <span className="bg-slate-100 text-slate-600 text-[10px] font-bold px-2 py-0.5 rounded border border-slate-200">
                   Level 3
                       </span>
