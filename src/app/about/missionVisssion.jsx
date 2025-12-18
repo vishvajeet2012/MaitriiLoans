@@ -71,7 +71,7 @@ const MissionVision = () => {
         },
         {
             title: "Core Values",
-            description: " Our core values drive us every day. We listen and respond with care, ensuring empathy in every interaction. Integrity means we act with honesty and transparency. Innovation helps us improve continuously. Inclusivity allows us to serve the underserved with equal opportunity. Excellence guides us to deliver the highest standards in service and support",
+            description: " Our core values guide us daily. We listen and respond with empathy and care. Integrity demands honesty and transparency. Innovation drives continuous improvement. Inclusivity serves the underserved with equal opportunity. Excellence ensures the highest standards in service and support.",
             icon: <Heart className="h-10 w-10 text-[#8B4789]" />,
             gradient: "bg-gradient-to-br from-[#8B4789]/10 to-[#B55F83]/20"
         },
