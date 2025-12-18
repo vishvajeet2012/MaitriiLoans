@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const FloatingContact = () => {
     const contactNumber = "+918946800600"; 
-    const locationUrl = "https://maps.google.com/?q=Maitrii+Loans"; // Update with actual location 
+    const locationUrl = "https://maps.app.goo.gl/LPHV9a1DSSmsqTfz6"; // Update with actual location 
 
     const [policyUpdate, setPolicyUpdate] = useState(null);
 
