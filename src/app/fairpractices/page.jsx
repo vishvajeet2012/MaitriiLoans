@@ -27,7 +27,7 @@ const FairPractices = () => {
                 {/* Intro */}
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 mb-8">
                     <p className="leading-relaxed mb-4">
-                        <span className="font-bold text-[#F47E4D]">Mentor Finmart</span> (Here in referred to as “Company” or “Maitrii Loans ”) is a Non Deposit Taking NBFC registered with the Reserve Bank of India. This document provides details of the practices which Maitrii Loans  follows to ensure fair and transparent dealings with its customers and is compliant with the RBI Circular DNBR (PD) as may be updated from time to time (“Guidelines”).
+                        <span className="font-bold text-[#F47E4D]">Mentor Finmart Pvt. Ltd. </span> (Here in referred to as “Company” or “Maitrii Loans ”) is a Non Deposit Taking NBFC registered with the Reserve Bank of India. This document provides details of the practices which Maitrii Loans  follows to ensure fair and transparent dealings with its customers and is compliant with the RBI Circular DNBR (PD) as may be updated from time to time (“Guidelines”).
                     </p>
                 </div>
 
