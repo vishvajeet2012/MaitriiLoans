@@ -257,7 +257,7 @@ const GrievancesRedressal = () => {
                     <div className="flex justify-between items-start mb-3">
                     
                       <span className="bg-slate-100 text-slate-600 text-[10px] font-bold px-2 py-0.5 rounded border border-slate-200">
-                        Final
+                  Level 3
                       </span>
                     </div>
 
