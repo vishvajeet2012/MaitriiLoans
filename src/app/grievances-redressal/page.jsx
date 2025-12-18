@@ -108,7 +108,7 @@ const GrievancesRedressal = () => {
                   <span className="bg-[#6D3078] text-white text-xs font-bold px-2 py-1 rounded-full">
                     STEP 1
                   </span>
-                  Registration
+               Complain Registration
                 </h2>
                 <p className="text-slate-500 text-xs mt-1 ml-12">
                   Choose any channel to register complaint
@@ -123,10 +123,10 @@ const GrievancesRedressal = () => {
                   </div>
                   <div className="min-w-0">
                     <h3 className="font-bold text-slate-800 text-xs sm:text-sm truncate">
-                      Branch
+                    Vist Nearest Branch
                     </h3>
                     <p className="text-slate-500 text-[10px] sm:text-xs truncate">
-                      Visit Manager
+                      Register Complaint  with branch Manager
                     </p>
                   </div>
                 </div>
@@ -140,7 +140,7 @@ const GrievancesRedressal = () => {
                       Call Us
                     </h3>
                     <p className="text-slate-500 text-[10px] sm:text-xs font-bold text-[#6D3078] truncate">
-                      8946 800600
+                     +91 8946 800600
                     </p>
                   </div>
                 </div>
@@ -158,21 +158,7 @@ const GrievancesRedressal = () => {
                         info@maitrii.in
                       </p>
                     </div>
-                    <div className="flex gap-2">
-                      <div className="h-8 w-px bg-slate-100"></div>
-                      <div>
-                        <h3 className="font-bold text-slate-800 text-xs sm:text-sm">
-                          Web
-                        </h3>
-                        <a
-                          href="https://www.skfin.in/contactus.php"
-                          target="_blank"
-                          className="text-[#6D3078] text-[10px] sm:text-xs underline font-bold whitespace-nowrap"
-                        >
-                          Portal ↗
-                        </a>
-                      </div>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -208,15 +194,15 @@ const GrievancesRedressal = () => {
                           Grievance Redressal Officer
                         </h3>
                         <p className="text-sm font-bold text-[#6D3078]">
-                          Mr. Chetan Gupta
+                          Mr. Utkarsh Goyal
                         </p>
                       </div>
                       <span className="bg-purple-100 text-[#6D3078] text-[10px] font-bold px-2 py-0.5 rounded">
-                        L1
+                        Level 1
                       </span>
                     </div>
                     <div className="text-xs text-slate-500 flex gap-4">
-                      <span>0141-4161551</span>
+                      <span>+91 77910-77777</span>
                       <span>customercare@skfin.in</span>
                     </div>
                   </div>
@@ -226,7 +212,7 @@ const GrievancesRedressal = () => {
                 <div className="pl-8 flex items-center gap-2">
                   <Clock size={14} className="text-[#F47E4D]" />
                   <span className="text-xs font-medium text-[#F47E4D]">
-                    If unresolved in 15 days
+                    If u nresolved in 15 days
                   </span>
                   <div className="h-px bg-[#F47E4D]/20 flex-1"></div>
                 </div>
@@ -241,15 +227,15 @@ const GrievancesRedressal = () => {
                           Principal Nodal Officer
                         </h3>
                         <p className="text-sm font-bold text-[#6D3078]">
-                          Ms. Anubha Khandelwal
+                          Mr. Kanishk Goyal
                         </p>
                       </div>
                       <span className="bg-orange-100 text-[#F47E4D] text-[10px] font-bold px-2 py-0.5 rounded">
-                        L2
+                        Level 2
                       </span>
                     </div>
                     <div className="text-xs text-slate-500 flex gap-4">
-                      <span>0141-4161552</span>
+                      <span>+91 77920-77777</span>
                       <span>pno@skfin.in</span>
                     </div>
                   </div>
@@ -269,19 +255,7 @@ const GrievancesRedressal = () => {
                   <div className="absolute left-0 top-4 w-3 h-3 bg-slate-700 rounded-full ring-4 ring-slate-50"></div>
                   <div className="bg-white p-5 rounded-xl shadow-sm border-2 border-slate-100">
                     <div className="flex justify-between items-start mb-3">
-                      <div>
-                        <h3 className="font-bold text-sm text-[#F47E4D]">
-                          Appeal to RBI
-                        </h3>
-                        <p className="text-xs text-slate-700 font-bold mt-1">
-                          General Manager
-                        </p>
-                        <p className="text-[10px] text-slate-500 leading-tight">
-                          Centralised Receipt and
-                          <br />
-                          Processing Centre
-                        </p>
-                      </div>
+                    
                       <span className="bg-slate-100 text-slate-600 text-[10px] font-bold px-2 py-0.5 rounded border border-slate-200">
                         Final
                       </span>
@@ -325,7 +299,7 @@ const GrievancesRedressal = () => {
                           <div className="w-1.5 h-1.5 bg-[#F47E4D] rounded-full"></div>
                         </div>
                         <a
-                          href="https://cms.rbi.org.in"
+                          href="/"
                           target="_blank"
                           className="text-[#F47E4D] text-[10px] font-bold hover:underline flex items-center gap-1"
                         >
