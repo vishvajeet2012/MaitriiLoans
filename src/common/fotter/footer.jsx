@@ -80,40 +80,10 @@ const Footer = () => {
                   Grievances Redressal
                 </a>
               </li>
-              <li>
-                <a
-                  href="/charges"
-                  className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity"
-                >
-                  Interest Rate Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/privacy-policy"
-                  className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity"
-                >
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/terms-conditions"
-                  className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity"
-                >
-                  Terms & Conditions
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://sachet.rbi.org.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity"
-                >
-                  RBI Sachet Portal
-                </a>
-              </li>
+            
+             
+             
+           
             </ul>
           </div>
 
