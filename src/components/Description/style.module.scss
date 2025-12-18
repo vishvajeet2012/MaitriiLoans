@@ -31,6 +31,28 @@
         border: 1px solid #6d3078 !important;
         transition: all 0.4s ease;
 
+        // White logo - visible by default
+        .whiteLogo {
+          width: 90px;
+          height: auto;
+          object-fit: contain;
+          position: relative;
+          z-index: 10;
+          pointer-events: none;
+          display: block;
+        }
+
+        // Orange logo - hidden by default
+        .orangeLogo {
+          width: 90px;
+          height: auto;
+          object-fit: contain;
+          position: absolute;
+          z-index: 10;
+          pointer-events: none;
+          display: none;
+        }
+
         &:hover {
           background-color: #ffffff !important;
           border: 1px solid #000000 !important;
@@ -38,15 +60,14 @@
           div {
             background-color: #ffffff !important;
           }
-        }
 
-        img {
-          width: 70px;
-          height: auto;
-          object-fit: contain;
-          position: relative;
-          z-index: 10;
-          pointer-events: none;
+          // On hover, hide white logo and show orange logo
+          .whiteLogo {
+            display: none;
+          }
+          .orangeLogo {
+            display: block;
+          }
         }
       }
     }
