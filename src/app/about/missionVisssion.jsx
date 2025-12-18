@@ -65,19 +65,19 @@ const MissionVision = () => {
         {
             title: "Our Mission",
             description:
-                "We strive to reach out to the financially excluded, unorganised, and unreached MSME sector and make finance available at a reasonable cost in a transparent manner.",
+                "We are committed to delivering reliable, transparent, and customer-centric financial solutions that support the growth of MSMEs and uplift the financially excluded, ensuring everyone has access to fair and reasonable financial opportunities.",
             icon: <Target className="h-10 w-10 text-[#6D3078]" />,
             gradient: "bg-gradient-to-br from-[#6D3078]/10 to-[#6D3078]/20"
         },
         {
             title: "Core Values",
-            description: "Maitrii Loans is a registered Non-Banking Financial Company (NBFC) with the Reserve Bank of India (RBI).\n\nWe are committed to providing essential infrastructure and financial support to Indian residents at very reasonable rates.",
+            description: " Our core values drive us every day. We listen and respond with care, ensuring empathy in every interaction. Integrity means we act with honesty and transparency. Innovation helps us improve continuously. Inclusivity allows us to serve the underserved with equal opportunity. Excellence guides us to deliver the highest standards in service and support",
             icon: <Heart className="h-10 w-10 text-[#8B4789]" />,
             gradient: "bg-gradient-to-br from-[#8B4789]/10 to-[#B55F83]/20"
         },
         {
             title: "Our Vision",
-            description: "We aim to lead in providing best & trusted financial solutions to cater the entrepreneurial aspirations and be empathetic to their needs.\n\nWe aspire to live up to the expectations of our clients, our people, our investors, and the society.",
+            description: "To be the most trusted and innovative financial partner, empowering entrepreneurs and communities across India by making finance accessible, affordable, and empowering",
             icon: <Eye className="h-10 w-10 text-[#F47E4D]" />,
             gradient: "bg-gradient-to-br from-[#F47E4D]/10 to-[#F47E4D]/20"
         },

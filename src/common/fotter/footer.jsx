@@ -64,6 +64,14 @@ const Footer = () => {
               Useful Links
             </h3>
             <ul className="space-y-3">
+               <li>
+                <a
+                  href="/"
+                  className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity"
+                >
+                Charges
+                </a>
+              </li>
               <li>
                 <a
                   href="/fairpractices"
@@ -93,6 +101,27 @@ const Footer = () => {
                   RBI Sachet Portal
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://www.digitalindia.gov.in/initiative/national-automated-clearing-house-nach/#:~:text=National%20Automated%20Clearing%20House%20(NACH)%20is%20a%20centralised%20system%20launched,and%20removing%20local%20barriers%2Finhibitors."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity"
+                >
+                NACH/ECS
+                </a>
+              </li>
+               <li>
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity"
+                >
+              Term and Condition
+                </a>
+              </li>
+              
             </ul>
           </div>
 
