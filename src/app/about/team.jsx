@@ -16,7 +16,7 @@ const teamMembers = [
     image: utkarsh,
 },
 {
-    name: "Mr. Vijendra Sharma",
+    name: "Mr. Bijendra Sharma",
     role: "VP – Business Development",
     description: "Expert in regional market dynamics and customer relationship management. Successfully expanded the branch network across multiple districts.",
     image: vijendra,
