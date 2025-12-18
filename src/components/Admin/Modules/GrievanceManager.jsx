@@ -45,6 +45,37 @@ const GrievanceManager = () => {
         total: 0
     });
     const [selectedGrievance, setSelectedGrievance] = useState(null);
+    const [updating, setUpdating] = useState(false);
+
+    const handleStatusUpdate = async (newStatus) => {
+        if (!selectedGrievance || updating) return;
+        
+        setUpdating(true);
+        try {
+            const res = await axios.patch("/api/admin/grievance/update", {
+                id: selectedGrievance._id,
+                status: newStatus
+            });
+            
+            // Update the selected grievance with new status
+            setSelectedGrievance({ ...selectedGrievance, status: newStatus });
+            
+            // Update the grievance in the list
+            setGrievances(prev => 
+                prev.map(g => g._id === selectedGrievance._id ? { ...g, status: newStatus } : g)
+            );
+            
+            // Refresh stats
+            const statsRes = await axios.get("/api/admin/grievance/stats");
+            setStats(statsRes.data);
+            
+        } catch (error) {
+            console.error("Error updating status:", error);
+            alert("Failed to update status");
+        } finally {
+            setUpdating(false);
+        }
+    };
 
     const fetchData = async () => {
         setLoading(true);
@@ -299,12 +330,35 @@ const GrievanceManager = () => {
                             <div className="pt-4 border-t border-gray-100">
                                 <div className="flex items-start gap-3">
                                     <FileText size={16} className="text-gray-400 mt-0.5" />
-                                    <div>
+                                    <div className="w-full">
                                         <p className="text-xs text-gray-500 mb-1">Issue Description</p>
                                         <p className="text-sm text-gray-700 leading-relaxed bg-gray-50 p-3 rounded-lg border border-gray-100">
                                             {selectedGrievance.issue}
                                         </p>
                                     </div>
+                                </div>
+                            </div>
+
+                            {/* Status Update Section */}
+                            <div className="pt-4 border-t border-gray-100">
+                                <p className="text-xs text-gray-500 mb-2">Update Status</p>
+                                <div className="flex flex-wrap gap-2">
+                                    {["Pending", "In Progress", "Resolved", "Closed"].map((status) => (
+                                        <button
+                                            key={status}
+                                            onClick={() => handleStatusUpdate(status)}
+                                            disabled={updating || selectedGrievance.status === status}
+                                            className={`px-4 py-2 text-sm font-medium rounded-lg border transition-all
+                                                ${selectedGrievance.status === status 
+                                                    ? "bg-[#6D3078] text-white border-[#6D3078] cursor-default" 
+                                                    : "bg-white text-gray-700 border-gray-200 hover:border-[#6D3078] hover:text-[#6D3078]"
+                                                }
+                                                ${updating ? "opacity-50 cursor-not-allowed" : ""}
+                                            `}
+                                        >
+                                            {updating && selectedGrievance.status !== status ? "..." : status}
+                                        </button>
+                                    ))}
                                 </div>
                             </div>
                         </div>

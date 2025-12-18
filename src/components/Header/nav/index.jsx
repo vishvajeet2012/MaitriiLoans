@@ -25,10 +25,7 @@ const navItems = [
         { title: "MSME", href: "/product/msme" },
     ]
   },
-    {
-    title: "Charges",
-    href: "/",
-  },
+ 
     {
     title: "About",
     href: "/about",
