@@ -111,17 +111,7 @@ const Footer = () => {
                 NACH/ECS
                 </a>
               </li>
-               <li>
-                <a
-                  href=""
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#6D3078] text-[0.95rem] hover:opacity-80 hover:underline transition-opacity"
-                >
-              Term and Condition
-                </a>
-              </li>
-              
+             
             </ul>
           </div>
 
