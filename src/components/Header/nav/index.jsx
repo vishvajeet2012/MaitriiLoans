@@ -89,7 +89,8 @@ export default function Navigation() {
                                         animate={{ height: "auto", opacity: 1 }}
                                         exit={{ height: 0, opacity: 0 }}
                                         transition={{ duration: 0.3 }}
-                                        className="flex flex-col pl-12 overflow-hidden"
+                                        className="flex flex-col pl-8 overflow-hidden"
+                                        style={{ fontSize: '18px' }}
                                     >
                                         {data.subItems.map((sub, i) => (
                                            <NavLink
@@ -97,7 +98,6 @@ export default function Navigation() {
                                                 data={{ ...sub, index: i }}
                                                 isActive={selectedIndicator == sub.href}
                                                 setSelectedIndicator={setSelectedIndicator}
-                                                className="text-xl" // Custom class for smaller font
                                             />
                                         ))}
                                     </motion.div>
