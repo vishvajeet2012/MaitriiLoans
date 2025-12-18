@@ -88,7 +88,7 @@ const NachEcsPage = () => {
     ];
 
     return (
-        <ProductPageTemplate hero={heroData} info={infoData} documents={documentsData} whyChooseUs={<WhyChooseUs />} />
+        <ProductPageTemplate hero={heroData} info={infoData} documents={documentsData} whyChooseUs={<WhyChooseUs />} showApplyButton={false} />
     );
 };
 

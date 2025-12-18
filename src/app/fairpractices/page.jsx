@@ -27,7 +27,7 @@ const FairPractices = () => {
                 {/* Intro */}
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 mb-8">
                     <p className="leading-relaxed mb-4">
-                        <span className="font-bold text-[#F47E4D]">Maitrii Loan</span> (Hereinafter referred to as “Company” or “Greenwings Innovative”) is a Non Deposit Taking NBFC registered with the Reserve Bank of India. This document provides details of the practices which Greenwings Innovative follows to ensure fair and transparent dealings with its customers and is compliant with the RBI Circular DNBR (PD) as may be updated from time to time (“Guidelines”).
+                        <span className="font-bold text-[#F47E4D]">Mentor Finmart</span> (Hereinafter referred to as “Company” or “Maitrii Loans ”) is a Non Deposit Taking NBFC registered with the Reserve Bank of India. This document provides details of the practices which Maitrii Loans  follows to ensure fair and transparent dealings with its customers and is compliant with the RBI Circular DNBR (PD) as may be updated from time to time (“Guidelines”).
                     </p>
                 </div>
 
@@ -97,9 +97,9 @@ const FairPractices = () => {
                         (iv) General
                     </h2>
                     <ul className="list-disc list-outside ml-5 space-y-3 text-slate-600">
-                        <li>Greenwings Innovative will not interfere in the affairs of the borrower except for the purposes provided in the terms and conditions of the Sanction Letter and Loan Agreement unless new information, not earlier disclosed by the borrower comes to the notice of the Company.</li>
+                        <li>Maitrii Loans  will not interfere in the affairs of the borrower except for the purposes provided in the terms and conditions of the Sanction Letter and Loan Agreement unless new information, not earlier disclosed by the borrower comes to the notice of the Company.</li>
                         <li>For any request for Balance Transfer received from the borrower, the consent or otherwise shall be communicated within 21 days of receipt of request. Such transfer shall be as per transparent contractual terms in consonance with the law.</li>
-                        <li>Greenwings Innovative shall not resort to undue harassment for recovery of dues. Proper training shall be given to the field staff to ensure that borrowers are dealt in an appropriate manner.</li>
+                        <li>Maitrii Loans  shall not resort to undue harassment for recovery of dues. Proper training shall be given to the field staff to ensure that borrowers are dealt in an appropriate manner.</li>
                         <li>The Board of the Company shall review the Redressal of grievances at regular intervals.</li>
                         <li>The management shall place before the board the status of all complaints at regular intervals.</li>
                         <li>The details of the Grievance Redressal Officer (including name, address, contact number, email ID, etc) shall be prominently displayed at the branches and also posted on the website.</li>

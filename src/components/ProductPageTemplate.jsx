@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, FileCheck, Calculator } from 'lucide-react';
 
-const ProductPageTemplate = ({ hero, info, documents, whyChooseUs }) => {
+const ProductPageTemplate = ({ hero, info, documents, whyChooseUs, showApplyButton = true }) => {
     // --- Info Section State ---
     const [activeIndex, setActiveIndex] = useState(0);
     const toggleAccordion = (index) => {
@@ -53,11 +53,13 @@ const ProductPageTemplate = ({ hero, info, documents, whyChooseUs }) => {
                         <p className="text-lg text-[#6D3078] leading-relaxed font-medium">
                             {hero.description}
                         </p>
-                        <div className="mt-6">
-                            <button className="px-8 py-3 bg-[#F47E4D] text-white rounded-full font-semibold hover:bg-[#e06d3d] transition-all shadow-lg shadow-orange-200">
-                                Apply Now
-                            </button>
-                        </div>
+                        {showApplyButton && (
+                            <div className="mt-6">
+                                <a href="/contact" className="px-8 py-3 bg-[#F47E4D] text-white rounded-full font-semibold hover:bg-[#e06d3d] transition-all shadow-lg shadow-orange-200 inline-block">
+                                    Apply Now
+                                </a>
+                            </div>
+                        )}
                     </motion.div>
 
                     {/* --- Right Side: Graphic --- */}
