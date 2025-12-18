@@ -13,7 +13,7 @@ export async function GET() {
       return NextResponse.json({ policy: null }, { 
         status: 200,
         headers: {
-          'Cache-Control': 'public, s-maxage=43200, stale-while-revalidate=3600' // 12h cache
+          'Cache-Control': 'no-store, max-age=0' // No cache - always fresh
         }
       });
     }
@@ -24,7 +24,7 @@ export async function GET() {
       return NextResponse.json({ policy: null }, { 
         status: 200,
         headers: {
-          'Cache-Control': 'public, s-maxage=43200, stale-while-revalidate=3600' // 12h cache
+          'Cache-Control': 'no-store, max-age=0' // No cache - always fresh
         }
       });
     }
@@ -41,7 +41,7 @@ export async function GET() {
     }, { 
       status: 200,
       headers: {
-        'Cache-Control': 'public, s-maxage=43200, stale-while-revalidate=3600' // 12h cache
+        'Cache-Control': 'no-store, max-age=0' // No cache - always fresh
       }
     });
   } catch (error) {
