@@ -8,7 +8,8 @@ import Maitrilogo from "../../../public/icons/whitelogo.png"
 import MaitriiOrange from "../../../public/icons/orangelogo.png"
 export default function Description() {
 
-    const phrase = "Mentor Finmart Pvt. Ltd. (Maitrii Loans), headquartered in Jaipur, is recognized as one of the most diversified finance companies in Rajasthan. Established in 1989, the company obtained its Non-Banking Financial Company (NBFC) license from the Reserve Bank of India in 2001. The current management assumed control of the organization in 2019. Since that time, Maitrii Loans has concentrated on enhancing its infrastructure and facilities to deliver reliable and timely services to its clientele.";
+    const phrase = `Headquartered in Jaipur, Mentor Finmart Pvt. Ltd. (Maitrii Loans) stands as one of Rajasthan's most diversified and reliable NBFCs. Founded in 1989 and RBI-licensed since 2001, we've built a legacy of trust over three decades.
+Since our dynamic leadership took the helm in 2019, we've invested heavily in cutting-edge infrastructure to deliver fast, seamless loans and personalized support—empowering customers across Rajasthan to seize opportunities and achieve financial freedom.`;
     const description = useRef(null);
     const isInView = useInView(description)
 
@@ -48,9 +49,9 @@ export default function Description() {
                             })
                         }
                     </p>
-                    <motion.p variants={opacity} animate={isInView ? "open" : "closed"}>
+                    {/* <motion.p variants={opacity} animate={isInView ? "open" : "closed"}>
                         The company&apos;s objective is to evolve into a comprehensive financial services provider, offering clients an effective means to attain both their short- and long-term financial aspirations.
-                    </motion.p>
+                    </motion.p> */}
                 </div>
 
             </div>
