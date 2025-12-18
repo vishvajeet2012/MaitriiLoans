@@ -33,15 +33,20 @@ export async function POST(req) {
 
     const latestGrievance = await Grievance.findOne().sort({ createdAt: -1 });
     
-    let nextIdNumber = 10001;
+    let nextIdNumber = 1;
     if (latestGrievance && latestGrievance.complaintId) {
-        const currentNumber = parseInt(latestGrievance.complaintId.replace("Maitrii", ""), 10);
-        if (!isNaN(currentNumber)) {
-            nextIdNumber = currentNumber + 1;
+        // Extract number from formats like "COMPL-MFPL-00001" or old "Maitrii10001"
+        const match = latestGrievance.complaintId.match(/(\d+)$/);
+        if (match) {
+            const currentNumber = parseInt(match[1], 10);
+            if (!isNaN(currentNumber)) {
+                nextIdNumber = currentNumber + 1;
+            }
         }
     }
     
-    const newComplaintId = `Maitrii${nextIdNumber}`;
+    // Format: COMPL-MFPL-00001 (5 digit padding)
+    const newComplaintId = `COMPL-MFPL-${String(nextIdNumber).padStart(5, '0')}`;
 
     const grievance = await Grievance.create({
       name,
@@ -129,7 +134,7 @@ export async function POST(req) {
                       </div>
 
                       <div style="text-align: center; margin-top: 30px;">
-                        <a href="${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/admin/dashboard?tab=grievance" style="display: inline-block; background: linear-gradient(135deg, #6D3078 0%, #8B4A9C 100%); color: #ffffff; text-decoration: none; padding: 14px 35px; border-radius: 50px; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(109, 48, 120, 0.3);">View in Dashboard</a>
+                        <a href="${process.env.NEXT_PUBLIC_APP_URL || 'https://maitrii.in'}/admin/dashboard?tab=grievance" style="display: inline-block; background: linear-gradient(135deg, #6D3078 0%, #8B4A9C 100%); color: #ffffff; text-decoration: none; padding: 14px 35px; border-radius: 50px; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(109, 48, 120, 0.3);">View in Dashboard</a>
                       </div>
                     </td>
                   </tr>
