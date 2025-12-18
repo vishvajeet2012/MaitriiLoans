@@ -13,6 +13,10 @@ const navItems = [
     title: "Home",
     href: "/",
   },
+     {
+    title: "About",
+    href: "/about",
+  },
 
   {
     title: "Products",
@@ -26,10 +30,7 @@ const navItems = [
     ]
   },
  
-    {
-    title: "About",
-    href: "/about",
-  },
+ 
 
   {
     title: "Contact",
