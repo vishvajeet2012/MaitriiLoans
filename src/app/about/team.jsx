@@ -9,31 +9,38 @@ import utkarsh from "../../../public/team/utkarsh.jpeg"
 // Placeholder for Team Members
 
 const teamMembers = [
-   {
-    name: " Mr.Utkarsh Goyal",
-   role: "Chief Executive Officer",
-    description: "Specializes in risk assessment and credit evaluation. Plays a vital role in maintaining the health of our loan portfolio through rigorous analysis.",
+  {
+    name: "Mr. Utkarsh Goyal",
+    role: "Chief Executive Officer",
+    experience: "15+ years",
+    description:
+      "A visionary leader driving Maitri Loans with a strong focus on innovation, ethical lending, and long-term growth. With deep industry insights and strategic decision-making, he plays a key role in shaping the company’s mission to make financial services accessible, transparent, and customer-centric.",
     image: utkarsh,
-},
-{
+  },
+  {
     name: "Mr. Bijendra Sharma",
     role: "VP – Business Development",
-    description: "Expert in regional market dynamics and customer relationship management. Successfully expanded the branch network across multiple districts.",
+    experience: "25 years experience",
+    description:
+      "Brings over two decades of expertise in business expansion, market penetration, and strategic partnerships. Instrumental in strengthening Maitri Loans’ regional presence, building trusted customer relationships, and driving sustainable business growth across multiple districts.",
     image: vijendra,
-},
-{
+  },
+  {
     name: "Mr. Manish Jain",
     role: "Chief Operating Officer",
-    description: "Dedicated professional with over 10 years of experience in financial operations and team leadership. Committed to driving growth and excellence in every project.",
+    experience: "20 years experience",
+    description:
+      "Oversees operational excellence at Maitri Loans with a strong background in financial operations and process optimization. His leadership ensures smooth internal workflows, regulatory compliance, and efficient service delivery to customers.",
     image: manish,
-},
-{
-    name: "Ms.Jyoti Sharma",
-    role: "Head of Operations ",
-    description: "Handles day-to-day operational challenges with a strategic mindset. Ensures smooth processing of loans and maintains high compliance standards.",
+  },
+  {
+    name: "Ms. Jyoti Sharma",
+    role: "Head of Operations",
+    experience: "10 years experience",
+    description:
+      "Manages day-to-day operations with a sharp focus on efficiency, compliance, and customer satisfaction. She plays a critical role in streamlining loan processing, improving turnaround times, and maintaining high operational standards at Maitri Loans.",
     image: msJyoti,
-},
-  
+  },
 ];
 
 const TeamCard = ({ name, role, description, image }) => {
